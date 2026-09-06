@@ -68,7 +68,7 @@
     }
     
     #about {
-  padding-top: 70px;
+  padding-top: 45px;
 }
 
     .label {
@@ -197,7 +197,7 @@
     .hero {
   display: flex;
   align-items: center;
-  padding: 145px 0 70px;
+  padding: 130px 0 45px;
 }
 
     .hero-grid {
@@ -287,17 +287,20 @@
     /* BIG PHOTO PLACEHOLDER */
 
     .portrait-frame {
-      min-height: 640px;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid var(--text);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(217,255,112,0.75),
-          rgba(255,255,255,0.6)
-        );
-    }
+  width: 100%;
+  max-width: 430px;
+  height: 500px;
+  justify-self: end;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--text);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(217,255,112,0.75),
+      rgba(255,255,255,0.6)
+    );
+}
 
     .portrait-placeholder {
       position: absolute;
@@ -751,9 +754,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .portrait-frame {
-        min-height: 520px;
-      }
+      
     }
 
     @media (max-width: 700px) {
@@ -777,9 +778,6 @@
         font-size: clamp(4rem, 19vw, 6.5rem);
       }
 
-      .portrait-frame {
-        min-height: 440px;
-      }
 
       .featured-shot {
         min-height: 430px;
