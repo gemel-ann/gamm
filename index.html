@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Gemel Ann Macaraeg | Marketing & Operations Portfolio</title>
 
   <meta
     name="description"
-    content="Portfolio of Gemel Ann Macaraeg, specialising in marketing operations, programme coordination, growth support, outreach, digital QA and administrative support."
+    content="Portfolio of Gemel Ann Macaraeg, supporting growing teams through marketing operations, programme coordination, outreach, research and digital support."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,22 +20,16 @@
   />
 
   <style>
-
-    /* ========================================
-       ROOT
-    ======================================== */
-
     :root {
-      --ink: #161616;
-      --paper: #f5f1e8;
-      --paper-light: #fffdf8;
-      --accent: #d9ff72;
-      --accent-dark: #bce64d;
-      --muted: #6d6b65;
-      --line: rgba(22, 22, 22, 0.13);
-      --dark-line: rgba(255, 255, 255, 0.15);
-      --max-width: 1240px;
-      --radius: 24px;
+      --bg: #f5f0e6;
+      --surface: #fffdf8;
+      --text: #151515;
+      --muted: #6b6963;
+      --line: rgba(21, 21, 21, 0.15);
+      --accent: #d9ff70;
+      --dark: #171717;
+      --white: #ffffff;
+      --max: 1240px;
     }
 
     * {
@@ -53,15 +43,14 @@
     body {
       margin: 0;
       font-family: "DM Sans", sans-serif;
-      background: var(--paper);
-      color: var(--ink);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      width: 100%;
     }
 
     a {
@@ -69,84 +58,62 @@
       text-decoration: none;
     }
 
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    ::selection {
-      background: var(--accent);
-      color: var(--ink);
-    }
-
-
-    /* ========================================
-       LAYOUT
-    ======================================== */
-
     .container {
-      width: min(calc(100% - 40px), var(--max-width));
+      width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
     }
 
     .section {
-      padding: 120px 0;
+      padding: 110px 0;
     }
 
-    .section-label {
-      display: inline-flex;
+    .label {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.72rem;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
     }
 
-    .section-label::before {
+    .label::before {
       content: "";
-      width: 28px;
+      width: 30px;
       height: 1px;
       background: currentColor;
     }
 
-    .section-title {
-      margin: 24px 0 24px;
-      max-width: 900px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      font-weight: 500;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-    }
-
-    .section-copy {
-      max-width: 700px;
+    .title {
       margin: 0;
-      font-size: 1.08rem;
-      color: var(--muted);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      font-weight: 500;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
     }
 
+    .copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
 
-    /* ========================================
-       HEADER
-    ======================================== */
+    /* HEADER */
 
-    .site-header {
+    .header {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      inset: 0 0 auto 0;
       z-index: 20;
-      padding: 26px 0;
+      padding: 24px 0;
     }
 
     .header-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 24px;
     }
 
@@ -164,75 +131,38 @@
       place-items: center;
       border: 1px solid var(--line);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.5);
     }
 
     .nav {
       display: flex;
-      align-items: center;
       gap: 28px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
-    .nav a {
-      position: relative;
-    }
+    /* FLOATING CONTACT */
 
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 100%;
-      height: 1px;
-      background: var(--ink);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.25s ease;
-    }
-
-    .nav a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-
-    /* ========================================
-       FLOATING CONTACT
-    ======================================== */
-
-    .floating-actions {
+    .floating-contact {
       position: fixed;
-      top: 18px;
-      right: 22px;
+      top: 16px;
+      right: 18px;
       z-index: 100;
-
       display: flex;
       align-items: center;
       gap: 8px;
-
       padding: 7px;
-
-      background: rgba(255, 253, 248, 0.88);
       border: 1px solid var(--line);
       border-radius: 999px;
-
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-
+      background: rgba(255,253,248,0.9);
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       opacity: 0;
-      transform: translateY(-16px);
+      transform: translateY(-14px);
       pointer-events: none;
-
-      transition:
-        opacity 0.28s ease,
-        transform 0.28s ease;
+      transition: 0.25s ease;
     }
 
-    body.scrolled .floating-actions {
+    body.scrolled .floating-contact {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
@@ -244,84 +174,90 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: var(--ink);
+      background: var(--dark);
       color: white;
       font-size: 0.8rem;
       font-weight: 700;
     }
 
-    .floating-contact {
-      padding: 10px 16px;
+    .floating-button {
+      padding: 10px 15px;
       border-radius: 999px;
       background: var(--accent);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
-
-    /* ========================================
-       HERO
-    ======================================== */
+    /* HERO */
 
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 150px 0 90px;
+      padding: 145px 0 90px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
       gap: 70px;
-      align-items: center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .hero-role {
+      margin-bottom: 22px;
       color: var(--muted);
-    }
-
-    .eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
     }
 
     .hero h1 {
       margin: 0;
-      max-width: 760px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(4.3rem, 8vw, 8.5rem);
+      font-size: clamp(4rem, 8vw, 8rem);
       font-weight: 500;
       line-height: 0.88;
       letter-spacing: -0.055em;
     }
 
-    .hero h1 em {
-      font-weight: 500;
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 26px;
+      font-weight: 600;
     }
 
-    .hero-description {
-      max-width: 650px;
-      margin: 34px 0 0;
-      font-size: clamp(1rem, 1.4vw, 1.22rem);
+    .location-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 1px solid var(--text);
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin-top: 28px;
       color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-email {
+      display: inline-block;
+      margin-top: 18px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--text);
+      font-weight: 700;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
-      margin-top: 36px;
+      flex-wrap: wrap;
+      margin-top: 32px;
     }
 
     .button {
@@ -333,9 +269,7 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       font-weight: 700;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .button:hover {
@@ -347,131 +281,56 @@
       border-color: transparent;
     }
 
-    .button-primary:hover {
-      background: var(--accent-dark);
-    }
+    /* BIG PHOTO PLACEHOLDER */
 
-    .hero-photo-wrap {
-      position: relative;
-    }
-
-    .hero-photo {
-      min-height: 620px;
+    .portrait-frame {
+      min-height: 640px;
       position: relative;
       overflow: hidden;
-
-      border-radius: 32px;
-      border: 1px solid var(--line);
-
+      border: 2px solid var(--text);
       background:
         linear-gradient(
           145deg,
-          rgba(217, 255, 114, 0.72),
-          rgba(255, 255, 255, 0.65)
+          rgba(217,255,112,0.75),
+          rgba(255,255,255,0.6)
         );
+    }
 
+    .portrait-placeholder {
+      position: absolute;
+      inset: 0;
       display: grid;
       place-items: center;
-    }
-
-    .photo-placeholder {
-      text-align: center;
       padding: 40px;
+      text-align: center;
     }
 
-    .photo-placeholder strong {
+    .portrait-placeholder strong {
       display: block;
       margin-bottom: 8px;
       font-family: "Playfair Display", serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 500;
     }
 
-    .photo-placeholder span {
+    .portrait-placeholder p {
+      max-width: 270px;
+      margin: 0 auto;
       color: var(--muted);
-      font-size: 0.9rem;
     }
 
-    .photo-note {
+    .portrait-tag {
       position: absolute;
-      left: -24px;
-      bottom: 40px;
-
-      width: 210px;
-
-      padding: 18px;
-
-      border-radius: 20px;
+      left: 18px;
+      bottom: 18px;
+      padding: 10px 14px;
+      background: var(--surface);
       border: 1px solid var(--line);
-
-      background: rgba(255, 253, 248, 0.92);
-
-      backdrop-filter: blur(14px);
-      box-shadow: 0 14px 45px rgba(0,0,0,0.08);
-
-      font-size: 0.84rem;
-    }
-
-    .photo-note strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .photo-note span {
-      color: var(--muted);
-    }
-
-
-    /* ========================================
-       MARQUEE
-    ======================================== */
-
-    .marquee {
-      overflow: hidden;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 17px 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 26s linear infinite;
-    }
-
-    .marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      white-space: nowrap;
-      padding-right: 24px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
     }
 
-    .marquee-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent-dark);
-      border-radius: 50%;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-
-    /* ========================================
-       ABOUT
-    ======================================== */
+    /* ABOUT */
 
     .about-grid {
       display: grid;
@@ -479,68 +338,73 @@
       gap: 80px;
     }
 
-    .about-copy {
-      max-width: 780px;
+    .about-main {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1.12;
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 1.1;
       letter-spacing: -0.035em;
     }
 
-    .about-detail {
-      max-width: 680px;
-      margin-top: 36px;
+    .about-photo-row {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 0.65fr 1.35fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-photo {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      border: 1.5px dashed var(--text);
+      background: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 30px;
+    }
+
+    .about-photo strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+
+    .about-photo span {
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 0.85rem;
     }
 
+    /* UX ACADEMY FEATURE */
 
-    /* ========================================
-       SELECTED WORK HEADER
-    ======================================== */
-
-    .work-intro {
-      background: var(--ink);
+    .project {
+      background: var(--dark);
       color: white;
     }
 
-    .work-intro .section-label,
-    .work-intro .section-copy {
-      color: rgba(255,255,255,0.63);
-    }
-
-
-    /* ========================================
-       UX ACADEMY FEATURE
-    ======================================== */
-
-    .project-feature {
-      padding: 110px 0;
-      background: var(--ink);
-      color: white;
+    .project .label,
+    .project .copy {
+      color: rgba(255,255,255,0.62);
     }
 
     .project-header {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 70px;
       align-items: end;
-      padding-bottom: 60px;
-      border-bottom: 1px solid var(--dark-line);
     }
 
-    .project-name {
+    .project-title {
       margin: 0;
       font-family: "Playfair Display", serif;
-      font-size: clamp(4rem, 8vw, 8rem);
-      font-weight: 500;
+      font-size: clamp(4rem, 9vw, 8rem);
       line-height: 0.9;
-      letter-spacing: -0.05em;
+      font-weight: 500;
+      letter-spacing: -0.055em;
     }
 
     .project-meta {
-      max-width: 520px;
-      color: rgba(255,255,255,0.68);
+      color: rgba(255,255,255,0.65);
     }
 
     .project-meta strong {
@@ -550,473 +414,333 @@
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 24px;
+      gap: 8px;
+      margin-top: 20px;
     }
 
     .project-tag {
       padding: 9px 13px;
-      border: 1px solid var(--dark-line);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 999px;
       font-size: 0.74rem;
     }
 
+    /* BIG FEATURE SCREENSHOT */
 
-    /* ========================================
-       CASE STUDIES
-    ======================================== */
+    .featured-shot-wrap {
+      margin-top: 70px;
+    }
+
+    .shot-label {
+      margin-bottom: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .featured-shot {
+      min-height: 620px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 2px dashed rgba(255,255,255,0.35);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(217,255,112,0.09),
+          rgba(255,255,255,0.04)
+        );
+      text-align: center;
+      padding: 40px;
+    }
+
+    .featured-shot strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+
+    .featured-shot p {
+      max-width: 430px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* CASE STUDIES */
 
     .case-study {
       padding: 110px 0;
-      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .case-study.dark {
-      background: var(--ink);
-      color: white;
-      border-color: var(--dark-line);
+    .case-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
     }
 
     .case-number {
       margin-bottom: 16px;
-      font-size: 0.74rem;
+      color: var(--muted);
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .dark .case-number {
-      color: rgba(255,255,255,0.5);
-    }
-
-    .case-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 80px;
+      text-transform: uppercase;
     }
 
     .case-title {
       margin: 0;
       font-family: "Playfair Display", serif;
-      font-size: clamp(3rem, 5vw, 5.2rem);
-      line-height: 1;
+      font-size: clamp(3rem, 5vw, 5.5rem);
       font-weight: 500;
-      letter-spacing: -0.04em;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
     }
 
-    .case-description {
+    .case-info {
       color: var(--muted);
-      font-size: 1rem;
     }
 
-    .dark .case-description {
-      color: rgba(255,255,255,0.65);
-    }
-
-    .case-block {
-      margin-top: 34px;
-    }
-
-    .case-block h4 {
-      margin: 0 0 10px;
-      font-size: 0.75rem;
+    .case-info h4 {
+      margin: 30px 0 8px;
+      color: var(--text);
+      font-size: 0.74rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .case-block p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .dark .case-block p {
-      color: rgba(255,255,255,0.65);
-    }
-
-    .case-list {
-      margin: 10px 0 0;
+    .case-info ul {
       padding-left: 18px;
-      color: var(--muted);
     }
 
-    .dark .case-list {
-      color: rgba(255,255,255,0.65);
+    .case-info li {
+      margin-bottom: 7px;
     }
 
-    .case-list li {
-      margin-bottom: 8px;
+    /* SCREENSHOT SECTION */
+
+    .gallery-title {
+      margin-top: 75px;
+      margin-bottom: 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
     }
 
-
-    /* ========================================
-       SCREENSHOT GALLERY
-    ======================================== */
-
-    .screenshot-gallery {
-      margin-top: 65px;
+    .gallery {
       display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 14px;
     }
 
-    .screenshot-stack {
+    .gallery-stack {
       display: grid;
       gap: 14px;
     }
 
-    .screenshot {
-      position: relative;
-
+    .screenshot-slot {
       min-height: 500px;
-
-      padding: 32px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      overflow: hidden;
-
-      border-radius: 24px;
-      border: 1px dashed rgba(22,22,22,0.3);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.8),
-          rgba(217,255,114,0.25)
-        );
-    }
-
-    .dark .screenshot {
-      border-color: rgba(255,255,255,0.25);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.08),
-          rgba(217,255,114,0.08)
-        );
-    }
-
-    .screenshot.small {
-      min-height: 243px;
-    }
-
-    .screenshot-center {
-      position: absolute;
-      inset: 0;
-
+      position: relative;
       display: grid;
       place-items: center;
-
-      padding: 30px;
-
+      padding: 35px;
+      border: 2px dashed rgba(21,21,21,0.38);
+      background: rgba(255,255,255,0.38);
       text-align: center;
     }
 
-    .screenshot-center strong {
+    .screenshot-slot.small {
+      min-height: 243px;
+    }
+
+    .screenshot-slot strong {
       display: block;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
       font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 500;
     }
 
-    .screenshot-center span {
+    .screenshot-slot span {
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.88rem;
     }
 
-    .dark .screenshot-center span {
-      color: rgba(255,255,255,0.5);
-    }
-
-    .screenshot-caption {
-      position: relative;
-      z-index: 2;
-
-      padding-top: 16px;
-
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .dark .screenshot-caption {
-      color: rgba(255,255,255,0.5);
-    }
-
-
-    /* ========================================
-       CAPABILITIES
-    ======================================== */
+    /* CAPABILITIES */
 
     .capabilities {
-      background: var(--paper-light);
+      background: var(--surface);
     }
 
-    .capability-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .capabilities-list {
       margin-top: 60px;
+      border-top: 1px solid var(--line);
     }
 
-    .capability-card {
-      min-height: 300px;
-      padding: 32px;
-
-      display: flex;
-      flex-direction: column;
-
-      border: 1px solid var(--line);
-      border-radius: 24px;
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+    .capability-row {
+      display: grid;
+      grid-template-columns: 70px 0.8fr 1.2fr;
+      gap: 30px;
+      align-items: start;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .capability-card:hover {
-      transform: translateY(-5px);
-      background: var(--accent);
-    }
-
-    .capability-number {
-      margin-bottom: auto;
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .capability-card h3 {
-      margin: 70px 0 10px;
+    .capability-row h3 {
+      margin: 0;
       font-family: "Playfair Display", serif;
       font-size: 2rem;
       font-weight: 500;
     }
 
-    .capability-card p {
-      max-width: 480px;
+    .capability-row p {
       margin: 0;
       color: var(--muted);
     }
 
+    /* TOOLS */
 
-    /* ========================================
-       TOOLS
-    ======================================== */
-
-    .tools-grid {
+    .tools-list {
+      margin-top: 60px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 58px;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
-    .tool-card {
-      min-height: 210px;
-      padding: 25px;
-
-      display: flex;
-      flex-direction: column;
-
-      border: 1px solid var(--line);
-      border-radius: 20px;
-
-      background: rgba(255,255,255,0.25);
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+    .tool {
+      min-height: 170px;
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .tool-card:hover {
-      transform: translateY(-5px);
-      background: var(--accent);
-    }
-
-    .tool-type {
-      margin-bottom: auto;
-      font-size: 0.68rem;
+    .tool small {
+      display: block;
+      margin-bottom: 45px;
+      color: var(--muted);
       font-weight: 700;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
     }
 
-    .tool-card h3 {
-      margin: 50px 0 6px;
-      font-size: 1.05rem;
+    .tool strong {
+      font-size: 1.2rem;
     }
 
-    .tool-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-
-    /* ========================================
-       HOW I WORK
-    ======================================== */
+    /* PROCESS */
 
     .process {
-      background: var(--ink);
+      background: var(--dark);
       color: white;
     }
 
-    .process .section-copy,
-    .process .section-label {
+    .process .label,
+    .process .copy {
       color: rgba(255,255,255,0.6);
     }
 
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      margin-top: 70px;
-      border-top: 1px solid var(--dark-line);
+      margin-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     .process-step {
-      padding: 36px 26px 30px 0;
-      border-right: 1px solid var(--dark-line);
+      padding: 34px 24px;
+      border-right: 1px solid rgba(255,255,255,0.15);
     }
 
     .process-step:last-child {
       border-right: 0;
-      padding-left: 26px;
     }
 
-    .process-step:not(:first-child) {
-      padding-left: 26px;
-    }
-
-    .process-number {
-      font-size: 0.72rem;
+    .process-step small {
       color: rgba(255,255,255,0.4);
     }
 
     .process-step h3 {
-      margin: 50px 0 10px;
+      margin: 55px 0 10px;
       font-family: "Playfair Display", serif;
       font-size: 2rem;
       font-weight: 500;
     }
 
     .process-step p {
-      margin: 0;
       color: rgba(255,255,255,0.58);
-      font-size: 0.9rem;
     }
 
-
-    /* ========================================
-       CONTACT
-    ======================================== */
+    /* CONTACT */
 
     .contact {
-      padding: 130px 0;
       background: var(--accent);
+      padding: 120px 0;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 80px;
       align-items: end;
     }
 
     .contact h2 {
       margin: 0;
-      max-width: 900px;
       font-family: "Playfair Display", serif;
       font-size: clamp(4rem, 8vw, 8rem);
-      line-height: 0.9;
       font-weight: 500;
-      letter-spacing: -0.05em;
+      line-height: 0.9;
+      letter-spacing: -0.055em;
     }
 
     .contact-detail {
-      max-width: 430px;
+      font-size: 1rem;
     }
 
-    .contact-detail p {
-      margin: 0 0 22px;
-    }
-
-    .email-link {
+    .contact-email {
       display: inline-block;
-      padding-bottom: 4px;
-      border-bottom: 1px solid var(--ink);
+      margin-top: 18px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--text);
+      font-size: 1.05rem;
       font-weight: 700;
       word-break: break-word;
     }
 
-
-    /* ========================================
-       FOOTER
-    ======================================== */
-
     footer {
-      padding: 24px 0;
-      background: var(--ink);
-      color: rgba(255,255,255,0.6);
+      padding: 25px 0;
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.82rem;
     }
 
     .footer-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 20px;
-      font-size: 0.8rem;
     }
 
-
-    /* ========================================
-       REVEAL
-    ======================================== */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-
-    /* ========================================
-       RESPONSIVE
-    ======================================== */
-
-    @media (max-width: 1000px) {
-
+    @media (max-width: 950px) {
       .hero-grid,
       .about-grid,
+      .about-photo-row,
       .project-header,
-      .case-layout,
+      .case-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-photo {
-        min-height: 520px;
-      }
-
-      .photo-note {
-        left: 18px;
-      }
-
-      .screenshot-gallery {
+      .gallery {
         grid-template-columns: 1fr;
       }
 
-      .tools-grid {
+      .tools-list {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1024,26 +748,18 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .process-step {
-        border-right: 0;
-        border-bottom: 1px solid var(--dark-line);
-        padding-left: 0 !important;
+      .portrait-frame {
+        min-height: 520px;
       }
-
-      .process-step:nth-child(even) {
-        padding-left: 24px !important;
-      }
-
     }
 
-    @media (max-width: 720px) {
-
+    @media (max-width: 700px) {
       .container {
-        width: min(calc(100% - 28px), var(--max-width));
+        width: min(calc(100% - 28px), var(--max));
       }
 
       .section {
-        padding: 90px 0;
+        padding: 80px 0;
       }
 
       .nav {
@@ -1051,424 +767,263 @@
       }
 
       .hero {
-        padding-top: 130px;
-      }
-
-      .hero-grid {
-        gap: 50px;
+        padding-top: 125px;
       }
 
       .hero h1 {
-        font-size: clamp(4rem, 20vw, 6.5rem);
+        font-size: clamp(4rem, 19vw, 6.5rem);
       }
 
-      .hero-photo {
-        min-height: 450px;
+      .portrait-frame {
+        min-height: 440px;
       }
 
-      .photo-note {
-        position: relative;
-        left: 0;
-        bottom: auto;
-        width: 100%;
-        margin-top: 12px;
+      .featured-shot {
+        min-height: 430px;
       }
 
-      .capability-grid,
-      .tools-grid,
+      .screenshot-slot {
+        min-height: 380px;
+      }
+
+      .screenshot-slot.small {
+        min-height: 240px;
+      }
+
+      .capability-row {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .capability-row p {
+        grid-column: 2;
+      }
+
+      .tools-list,
       .process-grid {
         grid-template-columns: 1fr;
       }
 
-      .process-step:nth-child(even) {
-        padding-left: 0 !important;
-      }
-
-      .screenshot {
-        min-height: 390px;
-      }
-
-      .screenshot.small {
-        min-height: 260px;
-      }
-
-      .floating-actions {
-        right: 12px;
-        top: 12px;
-      }
-
       .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
       }
-
     }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-      }
-
-    }
-
   </style>
 </head>
 
-
 <body>
 
-  <!-- =====================================
-       FLOATING ACTION
-  ====================================== -->
-
-  <div class="floating-actions">
-
-    <div class="floating-mark">
-      GM
-    </div>
-
+  <div class="floating-contact">
+    <div class="floating-mark">GM</div>
     <a
-      class="floating-contact"
       href="mailto:gemelmmacaraeg.biz@gmail.com"
+      class="floating-button"
     >
       Contact
     </a>
-
   </div>
 
-
-  <!-- =====================================
-       HEADER
-  ====================================== -->
-
-  <header class="site-header">
-
+  <header class="header">
     <div class="container header-inner">
-
       <a href="#top" class="brand">
-
-        <div class="brand-mark">
-          GM
-        </div>
-
+        <div class="brand-mark">GM</div>
         <span>Gemel Ann</span>
-
       </a>
 
-
       <nav class="nav">
-
         <a href="#about">About</a>
-
         <a href="#work">Work</a>
-
         <a href="#capabilities">Capabilities</a>
-
         <a href="#tools">Tools</a>
-
         <a href="#contact">Contact</a>
-
       </nav>
-
     </div>
-
   </header>
-
-
-  <!-- =====================================
-       HERO
-  ====================================== -->
 
   <main id="top">
 
-    <section class="hero">
+    <!-- HERO -->
 
+    <section class="hero">
       <div class="container hero-grid">
 
         <div>
-
-          <div class="eyebrow reveal">
-
-            <span class="eyebrow-dot"></span>
-
+          <div class="hero-role">
             Marketing Operations • Programme Coordination • Growth Support
-
           </div>
 
-
-          <h1 class="reveal">
-
-            I organise the work behind
-            <em>growing businesses.</em>
-
+          <h1>
+            Gemel Ann<br>
+            Macaraeg
           </h1>
 
+          <div class="location">
+            <span class="location-dot"></span>
+            Based in the Philippines
+          </div>
 
-          <p class="hero-description reveal">
-
-            I work across marketing, programme coordination,
-            outreach, research, digital systems and administrative
-            support. I help turn scattered tasks into organised,
-            well-executed work.
-
+          <p class="hero-copy">
+            I help growing teams organise marketing, operations,
+            outreach and digital work so projects stay clear,
+            coordinated and moving forward.
           </p>
 
+          <a
+            href="mailto:gemelmmacaraeg.biz@gmail.com"
+            class="hero-email"
+          >
+            gemelmmacaraeg.biz@gmail.com
+          </a>
 
-          <div class="hero-actions reveal">
-
-            <a
-              class="button button-primary"
-              href="#work"
-            >
+          <div class="hero-actions">
+            <a href="#work" class="button button-primary">
               View My Work
             </a>
 
             <a
-              class="button"
               href="mailto:gemelmmacaraeg.biz@gmail.com"
+              class="button"
             >
-              Get in Touch
+              Email Me
             </a>
-
           </div>
-
         </div>
 
+        <div class="portrait-frame">
 
-        <div class="hero-photo-wrap reveal">
+          <!--
+            REPLACE THIS PLACEHOLDER LATER WITH:
 
-          <div class="hero-photo">
+            <img
+              src="images/gemel-photo.jpg"
+              alt="Gemel Ann Macaraeg"
+              style="width:100%;height:100%;object-fit:cover;"
+            >
+          -->
 
-            <!--
-              REPLACE THIS AREA WITH YOUR OWN PHOTO LATER
+          <div class="portrait-placeholder">
+            <div>
+              <strong>YOUR PHOTO HERE</strong>
 
-              Example:
-
-              <img
-                src="images/gemel-photo.jpg"
-                alt="Gemel Ann Macaraeg"
-                style="width:100%;height:100%;object-fit:cover;"
-              >
-            -->
-
-            <div class="photo-placeholder">
-
-              <strong>Your Photo</strong>
-
-              <span>
-                Add your professional portrait here
-              </span>
-
+              <p>
+                Add a vertical professional portrait.
+                A simple background and waist-up photo
+                will work well here.
+              </p>
             </div>
-
           </div>
 
-
-          <div class="photo-note">
-
-            <strong>Gemel Ann Macaraeg</strong>
-
-            <span>
-              Philippines<br>
-              Open to remote opportunities
-            </span>
-
+          <div class="portrait-tag">
+            Professional Portrait
           </div>
 
         </div>
-
       </div>
-
     </section>
 
+    <!-- ABOUT -->
 
-    <!-- =====================================
-         MOVING STRIP
-    ====================================== -->
-
-    <div class="marquee">
-
-      <div class="marquee-track">
-
-        <div class="marquee-item">
-          Marketing Operations
-          <span class="marquee-dot"></span>
-          Programme Coordination
-          <span class="marquee-dot"></span>
-          Growth Support
-          <span class="marquee-dot"></span>
-          Outreach
-          <span class="marquee-dot"></span>
-          Website QA
-          <span class="marquee-dot"></span>
-          Research
-          <span class="marquee-dot"></span>
-        </div>
-
-        <div class="marquee-item">
-          Marketing Operations
-          <span class="marquee-dot"></span>
-          Programme Coordination
-          <span class="marquee-dot"></span>
-          Growth Support
-          <span class="marquee-dot"></span>
-          Outreach
-          <span class="marquee-dot"></span>
-          Website QA
-          <span class="marquee-dot"></span>
-          Research
-          <span class="marquee-dot"></span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================
-         ABOUT
-    ====================================== -->
-
-    <section
-      class="section"
-      id="about"
-    >
-
+    <section class="section" id="about">
       <div class="container about-grid">
 
-        <div class="section-label reveal">
+        <div class="label">
           01 / About
         </div>
 
-
         <div>
-
-          <div class="about-copy reveal">
-
-            I enjoy work where communication,
-            organisation and improvement overlap.
-
+          <div class="about-main">
+            I work where communication,
+            organisation and problem solving meet.
           </div>
 
-
-          <p class="about-detail reveal">
-
-            My experience covers programme coordination,
+          <p class="copy">
+            My experience includes programme coordination,
             marketing operations, outreach, lead communication,
-            website quality assurance, research and administrative
-            support.
-
+            website QA, research and administrative support.
           </p>
 
+          <div class="about-photo-row">
 
-          <p class="about-detail reveal">
+            <div class="about-photo">
+              <div>
+                <strong>SECOND PHOTO</strong>
+                <span>
+                  Optional casual or working photo
+                </span>
+              </div>
+            </div>
 
-            I am comfortable moving between people and systems.
-            That can mean following up with a prospective lead,
-            checking a website journey, coordinating content,
-            researching a partnership opportunity, reviewing
-            programme information, or making sure the next action
-            does not get lost.
+            <p class="copy">
+              I am comfortable moving between people and systems.
+              That can mean following up with a lead, checking a
+              website journey, coordinating content, researching a
+              partnership opportunity or making sure the next action
+              does not get lost.
+            </p>
 
-          </p>
-
+          </div>
         </div>
 
       </div>
-
     </section>
 
+    <!-- UX ACADEMY -->
 
-    <!-- =====================================
-         SELECTED WORK INTRO
-    ====================================== -->
-
-    <section
-      class="section work-intro"
-      id="work"
-    >
-
+    <section class="section project" id="work">
       <div class="container">
 
-        <div class="section-label reveal">
+        <div class="label">
           02 / Selected Work
         </div>
 
-
-        <h2 class="section-title reveal">
-
-          Work that shows
-          how I operate.
-
-        </h2>
-
-
-        <p class="section-copy reveal">
-
-          A selection of work across marketing,
-          programme coordination, outreach,
-          digital quality assurance and business operations.
-
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         UX ACADEMY
-    ====================================== -->
-
-    <section class="project-feature">
-
-      <div class="container">
-
         <div class="project-header">
 
-          <h2 class="project-name reveal">
-            UX<br>
-            Academy
-          </h2>
+          <div>
+            <h2 class="project-title">
+              UX Academy
+            </h2>
+          </div>
 
-
-          <div class="project-meta reveal">
-
+          <div class="project-meta">
             <p>
-
-              <strong>Role:</strong>
+              <strong>Role:</strong><br>
               Programme Coordinator and Growth Support
-
             </p>
 
             <p>
-
               I support UX Academy across marketing,
-              programme coordination, outreach,
-              lead communication, content, website QA,
-              partnerships and operational tasks.
-
+              programme coordination, outreach, lead communication,
+              content, website QA, partnerships and operational work.
             </p>
-
 
             <div class="project-tags">
-
-              <span class="project-tag">Marketing</span>
-
-              <span class="project-tag">Operations</span>
-
-              <span class="project-tag">Outreach</span>
-
-              <span class="project-tag">Programme Support</span>
-
+              <span class="project-tag">Marketing Operations</span>
+              <span class="project-tag">Programme Coordination</span>
+              <span class="project-tag">Growth Support</span>
               <span class="project-tag">Website QA</span>
+            </div>
+          </div>
 
+        </div>
+
+        <div class="featured-shot-wrap">
+
+          <div class="shot-label">
+            Featured Project Screenshot
+          </div>
+
+          <div class="featured-shot">
+
+            <div>
+              <strong>
+                MAIN UX ACADEMY SCREENSHOT
+              </strong>
+
+              <p>
+                Place one strong screenshot here.
+                Good options include the live website,
+                a campaign calendar, dashboard,
+                masterclass page or project document.
+              </p>
             </div>
 
           </div>
@@ -1476,1264 +1031,672 @@
         </div>
 
       </div>
-
     </section>
 
-
-    <!-- =====================================
-         CASE STUDY 01
-    ====================================== -->
+    <!-- CASE 01 -->
 
     <section class="case-study">
-
       <div class="container">
 
-        <div class="case-number reveal">
-          CASE STUDY 01
-        </div>
-
-
-        <div class="case-layout">
+        <div class="case-grid">
 
           <div>
+            <div class="case-number">
+              Case Study 01
+            </div>
 
-            <h3 class="case-title reveal">
-
+            <h3 class="case-title">
               Marketing &
               Campaign Operations
-
             </h3>
-
           </div>
 
-
-          <div class="case-description reveal">
+          <div class="case-info">
 
             <p>
-
               I help organise marketing activity so that
-              campaigns, events, content and deadlines stay visible
-              and coordinated.
-
+              campaigns, events, content and deadlines remain
+              visible and coordinated.
             </p>
 
+            <h4>What I worked on</h4>
 
-            <div class="case-block">
-
-              <h4>What I worked on</h4>
-
-              <ul class="case-list">
-
-                <li>Monthly content calendar planning</li>
-
-                <li>Masterclass and event promotion</li>
-
-                <li>Campaign coordination</li>
-
-                <li>Content review and publishing support</li>
-
-                <li>Newsletter coordination</li>
-
-                <li>Marketing activity tracking</li>
-
-              </ul>
-
-            </div>
-
-
-            <div class="case-block">
-
-              <h4>What this demonstrates</h4>
-
-              <p>
-
-                Organisation, campaign thinking, content coordination,
-                attention to deadlines and the ability to keep multiple
-                marketing activities moving at the same time.
-
-              </p>
-
-            </div>
+            <ul>
+              <li>Monthly content calendar planning</li>
+              <li>Masterclass and event promotion</li>
+              <li>Campaign coordination</li>
+              <li>Newsletter support</li>
+              <li>Content review</li>
+              <li>Marketing activity tracking</li>
+            </ul>
 
           </div>
-
         </div>
 
+        <div class="gallery-title">
+          Screenshot Gallery
+        </div>
 
-        <div class="screenshot-gallery reveal">
+        <div class="gallery">
 
-          <div class="screenshot">
+          <div class="screenshot-slot">
+            <div>
+              <strong>
+                CONTENT CALENDAR SCREENSHOT
+              </strong>
 
-            <div class="screenshot-center">
+              <span>
+                Place your main calendar or campaign planning screenshot here
+              </span>
+            </div>
+          </div>
 
+          <div class="gallery-stack">
+
+            <div class="screenshot-slot small">
               <div>
-
-                <strong>Screenshot 01</strong>
+                <strong>
+                  CAMPAIGN ASSET
+                </strong>
 
                 <span>
-                  Add your content calendar or campaign plan here
+                  Poster, masterclass creative or published campaign
                 </span>
-
               </div>
-
             </div>
 
-            <div class="screenshot-caption">
-              Example: UX Academy monthly campaign planning
-            </div>
+            <div class="screenshot-slot small">
+              <div>
+                <strong>
+                  NEWSLETTER SCREENSHOT
+                </strong>
 
-          </div>
-
-
-          <div class="screenshot-stack">
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 02</strong>
-
-                  <span>
-                    Published campaign or event asset
-                  </span>
-
-                </div>
-
+                <span>
+                  Planning, draft or final output
+                </span>
               </div>
-
-            </div>
-
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 03</strong>
-
-                  <span>
-                    Newsletter or campaign coordination
-                  </span>
-
-                </div>
-
-              </div>
-
             </div>
 
           </div>
 
         </div>
-
       </div>
-
     </section>
 
+    <!-- CASE 02 -->
 
-    <!-- =====================================
-         CASE STUDY 02
-    ====================================== -->
-
-    <section class="case-study dark">
-
+    <section class="case-study">
       <div class="container">
 
-        <div class="case-number reveal">
-          CASE STUDY 02
-        </div>
-
-
-        <div class="case-layout">
+        <div class="case-grid">
 
           <div>
+            <div class="case-number">
+              Case Study 02
+            </div>
 
-            <h3 class="case-title reveal">
-
+            <h3 class="case-title">
               Partnerships &
               Outreach
-
             </h3>
-
           </div>
 
-
-          <div class="case-description reveal">
+          <div class="case-info">
 
             <p>
-
-              I research relevant organisations, instructors,
-              communities and opportunities, then help move
-              conversations from initial contact to the next step.
-
+              I research organisations, contacts and opportunities,
+              then help move conversations from initial outreach
+              toward the next useful step.
             </p>
 
+            <h4>What I worked on</h4>
 
-            <div class="case-block">
-
-              <h4>What I worked on</h4>
-
-              <ul class="case-list">
-
-                <li>Prospect and partner research</li>
-
-                <li>Personalised outreach</li>
-
-                <li>Follow-up communication</li>
-
-                <li>Opportunity tracking</li>
-
-                <li>Directory and company profile outreach</li>
-
-                <li>Relationship coordination</li>
-
-              </ul>
-
-            </div>
-
-
-            <div class="case-block">
-
-              <h4>What this demonstrates</h4>
-
-              <p>
-
-                Research, professional communication,
-                relationship building, persistence
-                and organised follow-up.
-
-              </p>
-
-            </div>
+            <ul>
+              <li>Partner and prospect research</li>
+              <li>Tailored outreach</li>
+              <li>Follow-up communication</li>
+              <li>Opportunity tracking</li>
+              <li>Directory and profile outreach</li>
+            </ul>
 
           </div>
-
         </div>
 
+        <div class="gallery-title">
+          Screenshot Gallery
+        </div>
 
-        <div class="screenshot-gallery reveal">
+        <div class="gallery">
 
-          <div class="screenshot">
+          <div class="screenshot-slot">
+            <div>
+              <strong>
+                OUTREACH TRACKER SCREENSHOT
+              </strong>
 
-            <div class="screenshot-center">
+              <span>
+                Use a redacted spreadsheet or tracker here
+              </span>
+            </div>
+          </div>
 
+          <div class="gallery-stack">
+
+            <div class="screenshot-slot small">
               <div>
-
-                <strong>Screenshot 01</strong>
+                <strong>
+                  OUTREACH EMAIL
+                </strong>
 
                 <span>
-                  Redacted outreach or partnership tracker
+                  Hide names, emails and private details
                 </span>
-
               </div>
-
             </div>
 
-            <div class="screenshot-caption">
-              Hide names, email addresses and confidential information
-            </div>
+            <div class="screenshot-slot small">
+              <div>
+                <strong>
+                  PUBLISHED LISTING
+                </strong>
 
-          </div>
-
-
-          <div class="screenshot-stack">
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 02</strong>
-
-                  <span>
-                    Redacted outreach email
-                  </span>
-
-                </div>
-
+                <span>
+                  Trustpilot, Creativepool, Crunchbase or another public listing
+                </span>
               </div>
-
-            </div>
-
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 03</strong>
-
-                  <span>
-                    Published listing or partnership result
-                  </span>
-
-                </div>
-
-              </div>
-
             </div>
 
           </div>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =====================================
-         CASE STUDY 03
-    ====================================== -->
+    <!-- CASE 03 -->
 
     <section class="case-study">
-
       <div class="container">
 
-        <div class="case-number reveal">
-          CASE STUDY 03
-        </div>
-
-
-        <div class="case-layout">
+        <div class="case-grid">
 
           <div>
+            <div class="case-number">
+              Case Study 03
+            </div>
 
-            <h3 class="case-title reveal">
-
+            <h3 class="case-title">
               Lead &
               Enrolment Coordination
-
             </h3>
-
           </div>
 
-
-          <div class="case-description reveal">
+          <div class="case-info">
 
             <p>
-
-              I support communication with prospective students
-              and help keep interested leads moving through the
-              enquiry and enrolment process.
-
+              I support communication with interested leads
+              and help keep enquiries and follow-ups organised.
             </p>
 
+            <h4>What I worked on</h4>
 
-            <div class="case-block">
-
-              <h4>What I worked on</h4>
-
-              <ul class="case-list">
-
-                <li>Lead follow-ups</li>
-
-                <li>Enquiry communication</li>
-
-                <li>Hot and warm lead tracking</li>
-
-                <li>Follow-up reminders</li>
-
-                <li>Communication handovers</li>
-
-                <li>Enrolment journey support</li>
-
-              </ul>
-
-            </div>
-
-
-            <div class="case-block">
-
-              <h4>What this demonstrates</h4>
-
-              <p>
-
-                Clear communication, organised follow-up,
-                customer support and the ability to keep
-                conversations moving without losing the human touch.
-
-              </p>
-
-            </div>
+            <ul>
+              <li>Lead follow-up</li>
+              <li>Enquiry communication</li>
+              <li>Hot and warm lead tracking</li>
+              <li>Follow-up reminders</li>
+              <li>Enrolment support</li>
+            </ul>
 
           </div>
-
         </div>
 
+        <div class="gallery-title">
+          Screenshot Gallery
+        </div>
 
-        <div class="screenshot-gallery reveal">
+        <div class="gallery">
 
-          <div class="screenshot">
+          <div class="screenshot-slot">
+            <div>
+              <strong>
+                LEAD TRACKER SCREENSHOT
+              </strong>
 
-            <div class="screenshot-center">
+              <span>
+                Use a fully redacted version
+              </span>
+            </div>
+          </div>
 
+          <div class="gallery-stack">
+
+            <div class="screenshot-slot small">
               <div>
-
-                <strong>Screenshot 01</strong>
+                <strong>
+                  FOLLOW-UP EXAMPLE
+                </strong>
 
                 <span>
-                  Redacted lead tracker
+                  Example communication with private details hidden
                 </span>
-
               </div>
-
             </div>
 
-          </div>
-
-
-          <div class="screenshot-stack">
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 02</strong>
-
-                  <span>
-                    Example follow-up message
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 03</strong>
-
-                  <span>
-                    Progress or handover example
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         CASE STUDY 04
-    ====================================== -->
-
-    <section class="case-study dark">
-
-      <div class="container">
-
-        <div class="case-number reveal">
-          CASE STUDY 04
-        </div>
-
-
-        <div class="case-layout">
-
-          <div>
-
-            <h3 class="case-title reveal">
-
-              Website &
-              Journey QA
-
-            </h3>
-
-          </div>
-
-
-          <div class="case-description reveal">
-
-            <p>
-
-              I regularly check digital experiences from the
-              user's point of view, including website pages,
-              mobile layouts, links, course information
-              and enrolment journeys.
-
-            </p>
-
-
-            <div class="case-block">
-
-              <h4>What I worked on</h4>
-
-              <ul class="case-list">
-
-                <li>Desktop and mobile website checks</li>
-
-                <li>Broken-link checks</li>
-
-                <li>Course information accuracy</li>
-
-                <li>Enrolment-flow testing</li>
-
-                <li>Content and layout review</li>
-
-                <li>Post-update checks</li>
-
-              </ul>
-
-            </div>
-
-
-            <div class="case-block">
-
-              <h4>What this demonstrates</h4>
-
-              <p>
-
-                Attention to detail, UX awareness,
-                problem identification and the ability
-                to review digital experiences beyond surface appearance.
-
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="screenshot-gallery reveal">
-
-          <div class="screenshot">
-
-            <div class="screenshot-center">
-
+            <div class="screenshot-slot small">
               <div>
-
-                <strong>Screenshot 01</strong>
+                <strong>
+                  ENROLMENT FLOW
+                </strong>
 
                 <span>
-                  Website issue or QA example
+                  Screenshot of process, page or tracker
                 </span>
-
               </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="screenshot-stack">
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 02</strong>
-
-                  <span>
-                    Before or issue identified
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 03</strong>
-
-                  <span>
-                    After or implemented update
-                  </span>
-
-                </div>
-
-              </div>
-
             </div>
 
           </div>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =====================================
-         CASE STUDY 05
-    ====================================== -->
+    <!-- CASE 04 -->
 
     <section class="case-study">
-
       <div class="container">
 
-        <div class="case-number reveal">
-          CASE STUDY 05
-        </div>
-
-
-        <div class="case-layout">
+        <div class="case-grid">
 
           <div>
+            <div class="case-number">
+              Case Study 04
+            </div>
 
-            <h3 class="case-title reveal">
-
-              Newsletter &
-              Content Strategy
-
+            <h3 class="case-title">
+              Website &
+              Journey QA
             </h3>
-
           </div>
 
-
-          <div class="case-description reveal">
+          <div class="case-info">
 
             <p>
-
-              I helped develop a clearer structure for UX Academy
-              newsletter content so each issue had a focused story,
-              a clear purpose and a measurable action.
-
+              I review digital experiences from the user's point
+              of view, including course pages, mobile layouts,
+              content accuracy, links and enrolment journeys.
             </p>
 
+            <h4>What I worked on</h4>
 
-            <div class="case-block">
-
-              <h4>What I worked on</h4>
-
-              <ul class="case-list">
-
-                <li>Newsletter structure</li>
-
-                <li>Content format recommendations</li>
-
-                <li>Call-to-action planning</li>
-
-                <li>Topic prioritisation</li>
-
-                <li>Simple performance measurement</li>
-
-                <li>Content production planning</li>
-
-              </ul>
-
-            </div>
-
-
-            <div class="case-block">
-
-              <h4>What this demonstrates</h4>
-
-              <p>
-
-                Content thinking, practical strategy,
-                prioritisation and the ability to simplify
-                marketing processes.
-
-              </p>
-
-            </div>
+            <ul>
+              <li>Desktop and mobile checks</li>
+              <li>Broken link checks</li>
+              <li>Course information accuracy</li>
+              <li>Enrolment flow testing</li>
+              <li>Post-update checks</li>
+            </ul>
 
           </div>
-
         </div>
 
+        <div class="gallery-title">
+          Screenshot Gallery
+        </div>
 
-        <div class="screenshot-gallery reveal">
+        <div class="gallery">
 
-          <div class="screenshot">
+          <div class="screenshot-slot">
+            <div>
+              <strong>
+                WEBSITE QA SCREENSHOT
+              </strong>
 
-            <div class="screenshot-center">
+              <span>
+                Main example showing an issue or page you reviewed
+              </span>
+            </div>
+          </div>
 
+          <div class="gallery-stack">
+
+            <div class="screenshot-slot small">
               <div>
-
-                <strong>Screenshot 01</strong>
+                <strong>
+                  BEFORE
+                </strong>
 
                 <span>
-                  Newsletter strategy document
+                  Issue identified
                 </span>
-
               </div>
-
             </div>
 
-          </div>
+            <div class="screenshot-slot small">
+              <div>
+                <strong>
+                  AFTER
+                </strong>
 
-
-          <div class="screenshot-stack">
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 02</strong>
-
-                  <span>
-                    Content structure or planning page
-                  </span>
-
-                </div>
-
+                <span>
+                  Corrected or improved version
+                </span>
               </div>
-
-            </div>
-
-
-            <div class="screenshot small">
-
-              <div class="screenshot-center">
-
-                <div>
-
-                  <strong>Screenshot 03</strong>
-
-                  <span>
-                    Final newsletter or related output
-                  </span>
-
-                </div>
-
-              </div>
-
             </div>
 
           </div>
 
         </div>
-
       </div>
-
     </section>
 
+    <!-- CASE 05 -->
 
-    <!-- =====================================
-         CAPABILITIES
-    ====================================== -->
-
-    <section
-      class="section capabilities"
-      id="capabilities"
-    >
-
+    <section class="case-study">
       <div class="container">
 
-        <div class="section-label reveal">
+        <div class="case-grid">
+
+          <div>
+            <div class="case-number">
+              Case Study 05
+            </div>
+
+            <h3 class="case-title">
+              Newsletter &
+              Content Strategy
+            </h3>
+          </div>
+
+          <div class="case-info">
+
+            <p>
+              I helped organise newsletter content into a simpler
+              structure with clearer topics, calls to action
+              and ways to measure performance.
+            </p>
+
+            <h4>What I worked on</h4>
+
+            <ul>
+              <li>Newsletter structure</li>
+              <li>Content format recommendations</li>
+              <li>CTA planning</li>
+              <li>Topic prioritisation</li>
+              <li>Performance measurement</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="gallery-title">
+          Screenshot Gallery
+        </div>
+
+        <div class="gallery">
+
+          <div class="screenshot-slot">
+            <div>
+              <strong>
+                NEWSLETTER STRATEGY
+              </strong>
+
+              <span>
+                Add your main strategy document screenshot here
+              </span>
+            </div>
+          </div>
+
+          <div class="gallery-stack">
+
+            <div class="screenshot-slot small">
+              <div>
+                <strong>
+                  CONTENT PLAN
+                </strong>
+
+                <span>
+                  Structure or content planning screenshot
+                </span>
+              </div>
+            </div>
+
+            <div class="screenshot-slot small">
+              <div>
+                <strong>
+                  FINAL OUTPUT
+                </strong>
+
+                <span>
+                  Published or completed newsletter
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+
+    <section class="section capabilities" id="capabilities">
+      <div class="container">
+
+        <div class="label">
           03 / Capabilities
         </div>
 
-
-        <h2 class="section-title reveal">
-          Useful across the whole business.
+        <h2 class="title">
+          What I can support.
         </h2>
 
+        <div class="capabilities-list">
 
-        <div class="capability-grid">
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              01
-            </div>
-
+          <div class="capability-row">
+            <span>01</span>
             <h3>Marketing Operations</h3>
-
             <p>
-
               Campaign coordination, content planning,
-              newsletter support, event promotion,
-              publishing and reporting.
-
+              newsletter support, event promotion and reporting.
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              02
-            </div>
-
+          <div class="capability-row">
+            <span>02</span>
             <h3>Growth & Partnerships</h3>
-
             <p>
-
-              Prospect research, outreach, lead follow-up,
-              partnership opportunities and relationship coordination.
-
+              Research, prospecting, outreach,
+              lead follow-up and relationship coordination.
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              03
-            </div>
-
+          <div class="capability-row">
+            <span>03</span>
             <h3>Programme Operations</h3>
-
             <p>
-
-              Scheduling, student communication,
-              coordination, task tracking,
-              documentation and programme support.
-
+              Scheduling, communication, documentation,
+              task tracking and programme support.
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              04
-            </div>
-
+          <div class="capability-row">
+            <span>04</span>
             <h3>Website & Digital QA</h3>
-
             <p>
-
-              Website checking, user journeys,
-              content accuracy, broken links,
-              digital listings and post-update reviews.
-
+              Website checks, user journeys,
+              content accuracy, links and digital listings.
             </p>
+          </div>
 
-          </article>
-
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              05
-            </div>
-
+          <div class="capability-row">
+            <span>05</span>
             <h3>Administrative Support</h3>
-
             <p>
-
-              Research, documentation, inbox coordination,
-              records, follow-ups and keeping priorities visible.
-
+              Research, documentation, records,
+              inbox coordination and follow-ups.
             </p>
-
-          </article>
-
-
-          <article class="capability-card reveal">
-
-            <div class="capability-number">
-              06
-            </div>
-
-            <h3>Research & Problem Solving</h3>
-
-            <p>
-
-              Finding information, comparing options,
-              checking evidence and turning findings
-              into clear next actions.
-
-            </p>
-
-          </article>
+          </div>
 
         </div>
-
       </div>
-
     </section>
 
+    <!-- TOOLS -->
 
-    <!-- =====================================
-         TOOLS
-    ====================================== -->
-
-    <section
-      class="section"
-      id="tools"
-    >
-
+    <section class="section" id="tools">
       <div class="container">
 
-        <div class="section-label reveal">
+        <div class="label">
           04 / Tools & Platforms
         </div>
 
-
-        <h2 class="section-title reveal">
-          The tools behind the work.
+        <h2 class="title">
+          Tools behind the work.
         </h2>
 
-
-        <p class="section-copy reveal">
-
-          I am comfortable working across business,
-          marketing, research and digital platforms.
-          I learn new systems quickly when the work requires it.
-
-        </p>
-
-
-        <div class="tools-grid">
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Productivity
-            </span>
-
-            <h3>Google Workspace</h3>
-
-            <p>
-              Email, documents, spreadsheets, research and coordination.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Coordination
-            </span>
-
-            <h3>Slack</h3>
-
-            <p>
-              Team communication, reviews and programme coordination.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Meetings
-            </span>
-
-            <h3>Zoom</h3>
-
-            <p>
-              Live sessions, meetings and programme support.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Reviews
-            </span>
-
-            <h3>Trustpilot</h3>
-
-            <p>
-              Brand profile, review monitoring and listing accuracy.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Professional Directory
-            </span>
-
-            <h3>Creativepool</h3>
-
-            <p>
-              Business profile research, visibility and professional listings.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Company Research
-            </span>
-
-            <h3>Crunchbase</h3>
-
-            <p>
-              Company research, prospecting and business information.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Development
-            </span>
-
-            <h3>GitHub</h3>
-
-            <p>
-              Website files, version control and digital project work.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Advertising
-            </span>
-
-            <h3>Meta Ads Manager</h3>
-
-            <p>
-              Campaign visibility, advertising support and performance review.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Local Presence
-            </span>
-
-            <h3>Google Business Profile</h3>
-
-            <p>
-              Business information, visibility and profile accuracy.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Website
-            </span>
-
-            <h3>UX Academy Website</h3>
-
-            <p>
-              Content checking, course-page QA and user-journey testing.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              AI
-            </span>
-
-            <h3>ChatGPT</h3>
-
-            <p>
-              Research, drafting, analysis, planning and workflow support.
-            </p>
-
-          </article>
-
-
-          <article class="tool-card reveal">
-
-            <span class="tool-type">
-              Research
-            </span>
-
-            <h3>Web Research</h3>
-
-            <p>
-              Competitor research, contact discovery and market information.
-            </p>
-
-          </article>
+        <div class="tools-list">
+
+          <div class="tool">
+            <small>Productivity</small>
+            <strong>Google Workspace</strong>
+          </div>
+
+          <div class="tool">
+            <small>Coordination</small>
+            <strong>Slack</strong>
+          </div>
+
+          <div class="tool">
+            <small>Meetings</small>
+            <strong>Zoom</strong>
+          </div>
+
+          <div class="tool">
+            <small>Reviews</small>
+            <strong>Trustpilot</strong>
+          </div>
+
+          <div class="tool">
+            <small>Professional Directory</small>
+            <strong>Creativepool</strong>
+          </div>
+
+          <div class="tool">
+            <small>Company Research</small>
+            <strong>Crunchbase</strong>
+          </div>
+
+          <div class="tool">
+            <small>Development</small>
+            <strong>GitHub</strong>
+          </div>
+
+          <div class="tool">
+            <small>Advertising</small>
+            <strong>Meta Ads Manager</strong>
+          </div>
+
+          <div class="tool">
+            <small>Business Presence</small>
+            <strong>Google Business Profile</strong>
+          </div>
+
+          <div class="tool">
+            <small>Website</small>
+            <strong>UX Academy Website</strong>
+          </div>
+
+          <div class="tool">
+            <small>AI</small>
+            <strong>ChatGPT</strong>
+          </div>
+
+          <div class="tool">
+            <small>Research</small>
+            <strong>Web Research</strong>
+          </div>
 
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- =====================================
-         HOW I WORK
-    ====================================== -->
+    <!-- PROCESS -->
 
     <section class="section process">
-
       <div class="container">
 
-        <div class="section-label reveal">
+        <div class="label">
           05 / How I Work
         </div>
 
-
-        <h2 class="section-title reveal">
-          Curious enough to investigate.
-          Organised enough to finish.
+        <h2 class="title">
+          Understand. Organise.
+          Execute. Improve.
         </h2>
-
-
-        <p class="section-copy reveal">
-
-          I like understanding why something is being done,
-          not just completing the task. That helps me organise
-          the work properly and notice opportunities for improvement.
-
-        </p>
-
 
         <div class="process-grid">
 
-          <div class="process-step reveal">
-
-            <span class="process-number">
-              01
-            </span>
-
+          <div class="process-step">
+            <small>01</small>
             <h3>Understand</h3>
-
             <p>
-
-              Clarify the goal, context,
-              people involved and what success looks like.
-
+              Understand the goal, context and people involved.
             </p>
-
           </div>
 
-
-          <div class="process-step reveal">
-
-            <span class="process-number">
-              02
-            </span>
-
+          <div class="process-step">
+            <small>02</small>
             <h3>Organise</h3>
-
             <p>
-
-              Bring tasks, information,
-              deadlines and next actions into a clear structure.
-
+              Turn information and tasks into a clear structure.
             </p>
-
           </div>
 
-
-          <div class="process-step reveal">
-
-            <span class="process-number">
-              03
-            </span>
-
+          <div class="process-step">
+            <small>03</small>
             <h3>Execute</h3>
-
             <p>
-
-              Communicate, follow up,
-              coordinate and move the work forward.
-
+              Communicate, coordinate and move the work forward.
             </p>
-
           </div>
 
-
-          <div class="process-step reveal">
-
-            <span class="process-number">
-              04
-            </span>
-
+          <div class="process-step">
+            <small>04</small>
             <h3>Improve</h3>
-
             <p>
-
-              Notice what is unclear,
-              inefficient or broken and suggest a better way.
-
+              Notice what can be clearer, faster or easier.
             </p>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
+    <!-- CONTACT -->
 
-    <!-- =====================================
-         CONTACT
-    ====================================== -->
-
-    <section
-      class="contact"
-      id="contact"
-    >
-
+    <section class="contact" id="contact">
       <div class="container contact-grid">
 
-        <h2 class="reveal">
-
+        <h2>
           Have work that needs organising?
-
         </h2>
 
-
-        <div class="contact-detail reveal">
+        <div class="contact-detail">
 
           <p>
-
-            I am open to remote opportunities across
-            marketing operations, programme coordination,
-            administrative support and growth support.
-
+            Based in the Philippines.
           </p>
 
+          <p>
+            Open to remote opportunities in marketing operations,
+            programme coordination, growth support
+            and administrative operations.
+          </p>
 
           <a
-            class="email-link"
             href="mailto:gemelmmacaraeg.biz@gmail.com"
+            class="contact-email"
           >
             gemelmmacaraeg.biz@gmail.com
           </a>
@@ -2741,55 +1704,31 @@
         </div>
 
       </div>
-
     </section>
 
   </main>
 
-
-  <!-- =====================================
-       FOOTER
-  ====================================== -->
-
   <footer>
-
     <div class="container footer-inner">
-
       <span>
         © <span id="year"></span> Gemel Ann Macaraeg
       </span>
 
       <span>
-        Marketing & Operations Portfolio
+        Based in the Philippines
       </span>
-
     </div>
-
   </footer>
 
-
-  <!-- =====================================
-       JAVASCRIPT
-  ====================================== -->
-
   <script>
-
-    /* Floating navigation */
-
     const body = document.body;
 
     function updateHeader() {
-
       if (window.scrollY > 90) {
-
         body.classList.add("scrolled");
-
       } else {
-
         body.classList.remove("scrolled");
-
       }
-
     }
 
     updateHeader();
@@ -2800,80 +1739,8 @@
       { passive: true }
     );
 
-
-    /* Scroll reveal */
-
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-    const observer =
-      new IntersectionObserver(
-
-        entries => {
-
-          entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("visible");
-
-              observer.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: 0.12
-        }
-
-      );
-
-    revealElements.forEach(element => {
-
-      observer.observe(element);
-
-    });
-
-
-    /* Smooth internal links */
-
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(anchor => {
-
-        anchor.addEventListener(
-          "click",
-          function(event) {
-
-            const target =
-              document.querySelector(
-                this.getAttribute("href")
-              );
-
-            if (target) {
-
-              event.preventDefault();
-
-              target.scrollIntoView({
-                behavior: "smooth"
-              });
-
-            }
-
-          }
-        );
-
-      });
-
-
-    /* Footer year */
-
     document.getElementById("year").textContent =
       new Date().getFullYear();
-
   </script>
 
 </body>
