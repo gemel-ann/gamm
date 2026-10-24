@@ -571,6 +571,8 @@
           <button class="app" data-app="values">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 51S9 37 9 23c0-11 14-15 23-3 9-12 23-8 23 3 0 14-23 28-23 28Z" fill="#f2b7cf" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 28c3-3 6-3 9 0M35 28c3-3 6-3 9 0" fill="none" stroke="#fff7fb" stroke-width="2.4" stroke-linecap="round"/><path d="M25 36c4 4 10 4 14 0" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="app-label">How I Work</span>
           </button>
+          <button class="app" data-app="photos"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="13" width="48" height="39" rx="8" fill="#fff7fb" stroke="#b96588" stroke-width="2.4"/><circle cx="22" cy="25" r="4" fill="#f1c0d5"/><path d="m12 45 13-13 8 8 7-7 12 12" fill="#d6c4e8" stroke="#a878b0" stroke-width="2.4" stroke-linejoin="round"/></svg></span><span class="app-label">Photos</span></button>
+          <button class="app" data-app="notes"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="9" width="38" height="46" rx="5" fill="#fffaf0" stroke="#c69b78" stroke-width="2.4"/><path d="M21 22h22M21 30h22M21 38h16" stroke="#d6a98c" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="app-label">Notes</span></button>
           <button class="app" data-app="links">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M26 39 21 44a10 10 0 0 1-14-14l9-9a10 10 0 0 1 14 0" fill="#f8dce8" stroke="#b96588" stroke-width="2.6" stroke-linecap="round"/><path d="m38 25 5-5a10 10 0 0 1 14 14l-9 9a10 10 0 0 1-14 0" fill="#e6c9ed" stroke="#a878b0" stroke-width="2.6" stroke-linecap="round"/><path d="m23 41 18-18" stroke="#b96588" stroke-width="3" stroke-linecap="round"/></svg></span><span class="app-label">Find Me Online</span>
           </button>
@@ -720,12 +722,42 @@
         `
       },
 
+      photos: {
+        title: "Photos & Case Studies",
+        html: `
+          <div class="eyebrow">A tiny gallery of my work</div>
+          <h2>Little snapshots, meaningful work. ♡</h2>
+          <p>This gallery is ready for redacted screenshots, sample trackers, and portfolio visuals you are allowed to share. The illustrated cards are placeholders until real samples are added.</p>
+          <div class="photo-grid">
+            <div class="photo-card"><div class="photo-art">🔎</div><div class="photo-copy"><h3>Brand Consistency Audit</h3><p>Website and online presence review.</p></div></div>
+            <div class="photo-card"><div class="photo-art">🗓️</div><div class="photo-copy"><h3>Programme Coordination</h3><p>Scheduling and follow-up workflow.</p></div></div>
+            <div class="photo-card"><div class="photo-art">📋</div><div class="photo-copy"><h3>Research & Documentation</h3><p>Organized records and clear notes.</p></div></div>
+            <div class="photo-card"><div class="photo-art">💻</div><div class="photo-copy"><h3>My Portfolio Website</h3><p>An interactive site built with HTML, CSS, and JavaScript.</p></div></div>
+          </div>
+          <div class="content-card"><h3>Client confidentiality matters</h3><p>I only share work samples that I have permission to show.</p></div>
+        `
+      },
+      notes: {
+        title: "A Little Note from Me",
+        html: `
+          <div class="eyebrow">A note tucked inside your iPad</div>
+          <h2>Hi there, lovely human. ♡</h2>
+          <div class="note-paper"><h3>Thank you for stopping by!</h3><p>I'm Gemel Ann, a detail-oriented virtual assistant from the Philippines. I enjoy helping busy people keep work organized through thoughtful coordination, research, documentation, and follow-through.</p><p>I believe good support is about more than checking things off a list. It's about making the little details easier, keeping communication clear, and helping a team feel less overwhelmed.</p><p>If you're looking for someone curious, dependable, and willing to learn your way of working, I'd love to connect.</p><p style="margin-bottom:0"><strong>Warmly,</strong><br>Gemel Ann ୨୧</p></div>
+        `
+      },
       contact: {
         title: "Let's Connect",
         html: `
           <div class="eyebrow">Your next project could start here</div>
           <h2>Let's make work feel lighter. ♡</h2>
           <p>Looking for someone to support your day-to-day operations, keep tasks organized, or help with research and coordination? I'd love to hear about your needs.</p>
+          <form class="contact-form" id="contactForm">
+            <label>Your name<input name="senderName" required placeholder="What should I call you?"></label>
+            <label>Your email<input name="senderEmail" type="email" required placeholder="you@example.com"></label>
+            <label>What can I help with?<textarea name="message" required placeholder="Tell me a little about your project or role..."></textarea></label>
+            <button class="action-link" type="submit">Prepare my message ♡</button>
+            <p class="contact-notice" id="contactNotice" role="status"></p>
+          </form>
           <div class="content-card">
             <h3>Professional email</h3>
             <p>${portfolio.email === "YOUR_EMAIL_HERE" ? "Add your preferred professional email in the portfolio settings." : portfolio.email}</p>
@@ -764,6 +796,19 @@
     const appWindow = document.getElementById("appWindow");
     const windowTitle = document.getElementById("windowTitle");
     const windowContent = document.getElementById("windowContent");
+    const lockScreen = document.getElementById("lockScreen");
+    function updateLockScreen() {
+      const now = new Date();
+      document.getElementById("lockClock").textContent = now.toLocaleTimeString([], {hour:"2-digit",minute:"2-digit",hour12:false});
+      document.getElementById("lockDate").textContent = now.toLocaleDateString([], {weekday:"long",month:"long",day:"numeric"});
+    }
+    function unlockPortfolio() {
+      lockScreen.classList.add("unlocked");
+      window.setTimeout(() => { lockScreen.hidden = true; }, 400);
+      homeScreen.hidden = false;
+    }
+    document.getElementById("unlockButton").addEventListener("click", unlockPortfolio);
+    updateLockScreen();
 
     function openApp(appName) {
       const app = apps[appName];
@@ -772,10 +817,26 @@
       windowTitle.textContent = app.title;
       windowContent.innerHTML = app.html;
       homeScreen.hidden = true;
+      appWindow.classList.remove("active");
+      void appWindow.offsetWidth;
       appWindow.classList.add("active");
       appWindow.setAttribute("aria-hidden", "false");
       windowContent.scrollTop = 0;
       windowContent.focus();
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) contactForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const notice = document.getElementById("contactNotice");
+        if (!portfolio.email || portfolio.email === "YOUR_EMAIL_HERE") {
+          notice.textContent = "The contact form needs your professional email added to the portfolio settings first. LinkedIn is available below in the meantime.";
+          return;
+        }
+        const data = new FormData(contactForm);
+        const subject = encodeURIComponent("Portfolio enquiry from " + data.get("senderName"));
+        const body = encodeURIComponent("Name: " + data.get("senderName") + "\nEmail: " + data.get("senderEmail") + "\n\n" + data.get("message"));
+        window.location.href = "mailto:" + portfolio.email + "?subject=" + subject + "&body=" + body;
+        notice.textContent = "Your email app should open with your message ready to review and send.";
+      });
     }
 
     function goHome() {
@@ -804,6 +865,7 @@
 
     updateClock();
     setInterval(updateClock, 30000);
+    setInterval(updateLockScreen, 30000);
   </script>
 </body>
 </html>
