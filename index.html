@@ -168,23 +168,77 @@
       outline-offset: 4px;
     }
 
+    
     .app-icon {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       width: clamp(57px, 8vw, 76px);
       aspect-ratio: 1;
       border-radius: 23px;
       display: grid;
       place-items: center;
       font-size: 31px;
-      box-shadow: 0 7px 14px #78445d1b, inset 0 1px 1px #ffffffc9;
-      border: 1px solid #ffffff85;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 9px 18px rgba(160, 78, 116, 0.18),
+        inset 0 2px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -4px 8px rgba(192, 105, 145, 0.10);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
 
-    .app:nth-child(6n + 1) .app-icon { background: linear-gradient(145deg,#fff4f7,#efb9ce); }
-    .app:nth-child(6n + 2) .app-icon { background: linear-gradient(145deg,#fff8f2,#eac9b6); }
-    .app:nth-child(6n + 3) .app-icon { background: linear-gradient(145deg,#f9f0ff,#d9c7ed); }
-    .app:nth-child(6n + 4) .app-icon { background: linear-gradient(145deg,#f5fffa,#c1e2d6); }
-    .app:nth-child(6n + 5) .app-icon { background: linear-gradient(145deg,#fffdf0,#f2df9c); }
-    .app:nth-child(6n) .app-icon { background: linear-gradient(145deg,#fff2ee,#f0b8b0); }
+    /* Glossy highlight */
+    .app-icon::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.82) 0%,
+        rgba(255, 255, 255, 0.24) 32%,
+        transparent 58%
+      );
+      pointer-events: none;
+    }
+    
+    /* Coquette pink palette */
+    .app:nth-child(6n + 1) .app-icon {
+      background: linear-gradient(145deg, #fff8fb, #f2b8d0);
+    }
+
+    .app:nth-child(6n + 2) .app-icon {
+      background: linear-gradient(145deg, #fff6fa, #e9a9c5);
+    }
+
+    .app:nth-child(6n + 3) .app-icon {
+      background: linear-gradient(145deg, #fff7fc, #e3c2e6);
+    }
+
+    .app:nth-child(6n + 4) .app-icon {
+      background: linear-gradient(145deg, #fffafd, #f0c6dc);
+    }
+
+    .app:nth-child(6n + 5) .app-icon {
+      background: linear-gradient(145deg, #fffdf8, #f4d5df);
+    }
+
+    .app:nth-child(6n) .app-icon {
+      background: linear-gradient(145deg, #fff5f8, #e9a5bd);
+    }
+
+    .app:hover .app-icon {
+      box-shadow:
+        0 12px 24px rgba(160, 78, 116, 0.24),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    }
+
+.app-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+}
 
     .app-label {
       font-size: 12px;
