@@ -159,13 +159,41 @@
     }
 
     .heart { color: #c66f95; }
+    .home-guide {
+      max-width: 460px;
+      margin: 12px auto 0 !important;
+      padding: 10px 15px;
+      border: 1px solid #ffffffa8;
+      border-radius: 14px;
+      background: #fff9fc80;
+      line-height: 1.6;
+      font-size: 12px !important;
+    }
 
     .app-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .app-group { width: 100%; }
+    .app-group-title {
+      margin: 0 0 13px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ffffffa8;
+      color: #98627a;
+      font-size: 11px;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+    .app-group-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 25px 12px;
-      max-width: 630px;
-      margin: 0 auto;
+      gap: 20px 12px;
     }
 
     .app {
@@ -496,7 +524,7 @@
     }
 
     @media (min-width: 700px) {
-      .app-grid { grid-template-columns: repeat(4, 1fr); }
+      .app-group-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .home { padding-top: 20px; }
     }
 
@@ -507,7 +535,9 @@
       .status { padding: 0 17px; }
       .home { padding: 12px 13px 85px; }
       .welcome { padding: 24px 0 30px; }
-      .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px 5px; }
+      .app-group-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 5px; }
+      .app-grid { gap: 22px; }
+      .app-group-title { font-size: 10px; letter-spacing: 1.2px; }
       .app-icon { border-radius: 19px; }
       .app-window { inset: 48px 9px 77px; border-radius: 18px; }
       .window-content { padding: 21px 17px; }
@@ -547,35 +577,36 @@
           <div class="eyebrow">A little corner of my world</div>
           <h1>Hi, I'm Gemel <span class="heart">♡</span></h1>
           <p>Virtual Assistant · Programme Coordination · Admin Support</p>
+          <p class="home-guide">Not sure where to start? Begin with <strong>About Me</strong>, explore my work, then say hello. ♡</p>
         </div>
 
         <nav class="app-grid" aria-label="Portfolio apps">
-          <button class="app" data-app="about">
+          <div class="app-group"><h2 class="app-group-title">01 · Start here</h2><div class="app-group-grid"><button class="app" data-app="about">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M31 22C19 6 7 16 15 27l16 13 17-14C57 15 43 7 31 22Z" fill="#e99fbd" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M31 22C25 12 17 14 16 20" fill="none" stroke="#fff5fa" stroke-width="2.4" stroke-linecap="round"/><path d="M31 40v10M26 50h10" stroke="#b96588" stroke-width="2.4" stroke-linecap="round"/><circle cx="31" cy="22" r="4" fill="#fff1f7" stroke="#b96588" stroke-width="2"/></svg></span><span class="app-label">About Me</span>
           </button>
           <button class="app" data-app="experience">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="22" width="44" height="30" rx="7" fill="#f8dce8" stroke="#b96588" stroke-width="2.4"/><path d="M23 22v-5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v5" fill="#fff7fb" stroke="#b96588" stroke-width="2.4"/><path d="M10 33h44M27 31v5h10v-5" fill="none" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/></svg></span><span class="app-label">Experience</span>
           </button>
-          <button class="app" data-app="projects">
-            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M9 20a5 5 0 0 1 5-5h13l5 6h18a5 5 0 0 1 5 5v21a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5Z" fill="#e8d8f0" stroke="#a878b0" stroke-width="2.4" stroke-linejoin="round"/><path d="M9 27h46" stroke="#a878b0" stroke-width="2.4"/><path d="m25 37 5 5 10-11" fill="none" stroke="#a878b0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Projects</span>
-          </button>
           <button class="app" data-app="skills">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 52V27" stroke="#a45f7e" stroke-width="2.6" stroke-linecap="round"/><path d="M31 34C13 34 12 19 14 14c14 0 21 8 17 20Z" fill="#c9dfbd" stroke="#739a75" stroke-width="2.2" stroke-linejoin="round"/><path d="M33 42c17 0 20-13 18-19-13 0-21 7-18 19Z" fill="#e4b9d3" stroke="#b96588" stroke-width="2.2" stroke-linejoin="round"/><path d="M25 52h14" stroke="#a45f7e" stroke-width="2.6" stroke-linecap="round"/><circle cx="32" cy="19" r="5" fill="#fff2f7" stroke="#b96588" stroke-width="2"/></svg></span><span class="app-label">Skills & Tools</span>
           </button>
-          <button class="app" data-app="resume">
-            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M17 9h22l10 10v35H17Z" fill="#fff8fb" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M39 9v11h10" fill="#f1c8da" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 30h17M24 37h17M24 44h11" stroke="#d28ba9" stroke-width="2.6" stroke-linecap="round"/><path d="m23 17 2 2 4-5" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Resume</span>
-          </button>
-          <button class="app" data-app="contact">
-            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="17" width="48" height="33" rx="7" fill="#fff6fa" stroke="#b96588" stroke-width="2.4"/><path d="m10 21 22 17 22-17" fill="#f3c6d9" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 17c-6-9-14-2-9 4l9 8 9-8c5-6-3-13-9-4Z" fill="#e79cba" stroke="#b96588" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="app-label">Contact Me</span>
-          </button>
           <button class="app" data-app="values">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 51S9 37 9 23c0-11 14-15 23-3 9-12 23-8 23 3 0 14-23 28-23 28Z" fill="#f2b7cf" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 28c3-3 6-3 9 0M35 28c3-3 6-3 9 0" fill="none" stroke="#fff7fb" stroke-width="2.4" stroke-linecap="round"/><path d="M25 36c4 4 10 4 14 0" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="app-label">How I Work</span>
+          </button></div></div>
+          <div class="app-group"><h2 class="app-group-title">02 · Explore my work</h2><div class="app-group-grid"><button class="app" data-app="projects">
+            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M9 20a5 5 0 0 1 5-5h13l5 6h18a5 5 0 0 1 5 5v21a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5Z" fill="#e8d8f0" stroke="#a878b0" stroke-width="2.4" stroke-linejoin="round"/><path d="M9 27h46" stroke="#a878b0" stroke-width="2.4"/><path d="m25 37 5 5 10-11" fill="none" stroke="#a878b0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Projects</span>
           </button>
           <button class="app" data-app="photos"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="13" width="48" height="39" rx="8" fill="#fff7fb" stroke="#b96588" stroke-width="2.4"/><circle cx="22" cy="25" r="4" fill="#f1c0d5"/><path d="m12 45 13-13 8 8 7-7 12 12" fill="#d6c4e8" stroke="#a878b0" stroke-width="2.4" stroke-linejoin="round"/></svg></span><span class="app-label">Photos</span></button>
-          <button class="app" data-app="notes"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="9" width="38" height="46" rx="5" fill="#fffaf0" stroke="#c69b78" stroke-width="2.4"/><path d="M21 22h22M21 30h22M21 38h16" stroke="#d6a98c" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="app-label">Notes</span></button>
+          <button class="app" data-app="resume">
+            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M17 9h22l10 10v35H17Z" fill="#fff8fb" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M39 9v11h10" fill="#f1c8da" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 30h17M24 37h17M24 44h11" stroke="#d28ba9" stroke-width="2.6" stroke-linecap="round"/><path d="m23 17 2 2 4-5" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Resume</span>
+          </button></div></div>
+          <div class="app-group"><h2 class="app-group-title">03 · Connect & say hello</h2><div class="app-group-grid"><button class="app" data-app="contact">
+            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="17" width="48" height="33" rx="7" fill="#fff6fa" stroke="#b96588" stroke-width="2.4"/><path d="m10 21 22 17 22-17" fill="#f3c6d9" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M32 17c-6-9-14-2-9 4l9 8 9-8c5-6-3-13-9-4Z" fill="#e79cba" stroke="#b96588" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="app-label">Contact Me</span>
+          </button>
           <button class="app" data-app="links">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M26 39 21 44a10 10 0 0 1-14-14l9-9a10 10 0 0 1 14 0" fill="#f8dce8" stroke="#b96588" stroke-width="2.6" stroke-linecap="round"/><path d="m38 25 5-5a10 10 0 0 1 14 14l-9 9a10 10 0 0 1-14 0" fill="#e6c9ed" stroke="#a878b0" stroke-width="2.6" stroke-linecap="round"/><path d="m23 41 18-18" stroke="#b96588" stroke-width="3" stroke-linecap="round"/></svg></span><span class="app-label">Find Me Online</span>
           </button>
+          <button class="app" data-app="notes"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="9" width="38" height="46" rx="5" fill="#fffaf0" stroke="#c69b78" stroke-width="2.4"/><path d="M21 22h22M21 30h22M21 38h16" stroke="#d6a98c" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="app-label">Notes</span></button></div></div>
         </nav>
 
         <p class="signature">Made with care, coffee & a little pink magic ♡</p>
@@ -607,7 +638,7 @@
     // PERSONALIZE THESE DETAILS BEFORE SHARING YOUR PORTFOLIO.
     const portfolio = {
       name: "Gemel Ann Macaraeg",
-      email: "YOUR_EMAIL_HERE",
+      email: "gemelmmacaraeg.biz@gmail.com",
       linkedin: "https://www.linkedin.com/in/gemel-macaraeg-011163413/",
       resume: "", // Add your resume PDF URL after uploading it to your repository.
     };
