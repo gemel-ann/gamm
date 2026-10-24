@@ -249,14 +249,38 @@
       box-shadow:
         0 12px 24px rgba(160, 78, 116, 0.24),
         inset 0 2px 4px rgba(255, 255, 255, 1);
+      transform: translateY(-2px) rotate(-2deg);
     }
 
-.app-label {
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1.3;
-}
+    /* Tiny coquette bow charm on every home-screen app icon */
+    .app-icon::after {
+      content: "୨୧";
+      position: absolute;
+      z-index: 2;
+      top: 3px;
+      right: 5px;
+      color: #b85f86;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      line-height: 1;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+      pointer-events: none;
+    }
+
+    .app:nth-child(3n + 1) .app-icon::after { color: #c56b91; }
+    .app:nth-child(3n + 2) .app-icon::after { color: #a66b9e; }
+    .app:nth-child(3n) .app-icon::after { color: #bd7893; }
+
+    .dock button {
+      background: linear-gradient(145deg, #fffafd, #f1d0df);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: inset 0 1px 2px #ffffff, 0 3px 8px #a45d7b18;
+    }
+
+    .dock button:hover {
+      background: linear-gradient(145deg, #ffffff, #eabbd0);
+      transform: translateY(-4px) scale(1.04);
+    }
 
     .app-label {
       font-size: 12px;
