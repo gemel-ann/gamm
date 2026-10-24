@@ -1,1812 +1,674 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Gemel Ann Macaraeg | Marketing & Operations Portfolio</title>
-
-  <meta
-    name="description"
-    content="Portfolio of Gemel Ann Macaraeg, supporting growing teams through marketing operations, programme coordination, outreach, research and digital support."
-  >
+  <meta name="theme-color" content="#f8e5ed">
+  <meta name="description" content="Explore Gemel Ann Macaraeg's interactive virtual assistant portfolio, experience, skills, and projects.">
+  <title>Gemel's iPad | Virtual Assistant Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f5f0e6;
-      --surface: #fffdf8;
-      --text: #151515;
-      --muted: #6b6963;
-      --line: rgba(21, 21, 21, 0.15);
-      --accent: #d9ff70;
-      --dark: #171717;
-      --white: #ffffff;
-      --max: 1120px;
+      --pink: #f5d5e1;
+      --pink-dark: #d78da9;
+      --rose: #b96d8b;
+      --cream: #fff9f7;
+      --ink: #49333e;
+      --muted: #886d7a;
+      --glass: rgba(255, 249, 252, 0.78);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: "DM Sans", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 15% 15%, #fff7f6 0, transparent 35%),
+        radial-gradient(ellipse at 90% 85%, #e8b5cb 0, transparent 35%),
+        linear-gradient(140deg, #f9e7ed, #edc6d7 55%, #f8e9e7);
+      display: grid;
+      place-items: center;
+      padding: 24px;
     }
 
-    img {
-      display: block;
-      width: 100%;
+    button, a { font: inherit; }
+    button { color: inherit; }
+
+    .ipad {
+      position: relative;
+      width: min(100%, 1000px);
+      min-height: 680px;
+      padding: 14px;
+      border-radius: 38px;
+      background: linear-gradient(145deg, #fffdfd, #cda5b6 55%, #fff5f8);
+      box-shadow: 0 35px 90px #86536c35, inset 0 0 0 2px #ffffffb8;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .screen {
+      position: relative;
+      min-height: 652px;
+      height: min(78vh, 760px);
+      overflow: hidden;
+      border-radius: 27px;
+      background:
+        radial-gradient(ellipse at 10% 80%, #fff0f5 0, transparent 40%),
+        radial-gradient(ellipse at 90% 20%, #f8cfe0 0, transparent 45%),
+        linear-gradient(140deg, #f4dce6, #e9bcd0 55%, #f8e8ed);
     }
 
-    .container {
-      width: min(calc(100% - 48px), var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 75px 0;
-    }
-
-    #about {
-      padding-top: 45px;
-    }
-
-    .label {
+    .status {
+      height: 42px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 0.68rem;
+      justify-content: space-between;
+      padding: 0 27px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      position: relative;
+      z-index: 5;
     }
 
-    .label::before {
+    .status-right { display: flex; align-items: center; gap: 9px; }
+
+    .battery {
+      width: 22px;
+      height: 11px;
+      border: 1.5px solid currentColor;
+      border-radius: 3px;
+      padding: 2px;
+      position: relative;
+    }
+
+    .battery::before {
       content: "";
-      width: 25px;
-      height: 1px;
+      display: block;
+      height: 100%;
+      width: 75%;
+      border-radius: 1px;
       background: currentColor;
     }
 
-    .title {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.7rem, 5vw, 5rem);
-      font-weight: 500;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-    }
-
-    .copy {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    /* HEADER */
-
-    .header {
+    .battery::after {
+      content: "";
       position: absolute;
-      inset: 0 0 auto 0;
-      z-index: 20;
-      padding: 20px 0;
+      right: -4px;
+      top: 2px;
+      width: 2px;
+      height: 4px;
+      background: currentColor;
+      border-radius: 0 2px 2px 0;
     }
 
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+    .home {
+      padding: 10px 28px 90px;
+      height: calc(100% - 42px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #d79bb4 transparent;
     }
 
-    .brand {
-  display: flex;
-  align-items: center;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
+    .welcome { text-align: center; padding: 18px 0 27px; }
 
-    .nav {
-      display: flex;
-      gap: 23px;
-      font-size: 0.82rem;
-    }
-
-    .nav a {
-      transition: opacity 0.2s ease;
-    }
-
-    .nav a:hover {
-      opacity: 0.55;
-    }
-
-    /* FLOATING CONTACT */
-
-    .floating-contact {
-  position: fixed;
-  top: 24px;
-  right: 35px;
-  z-index: 100;
-  opacity: 0;
-  transform: translateY(-12px);
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-    body.scrolled .floating-contact {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .floating-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 46px;
-  padding: 0 19px;
-  border: 1px solid var(--text);
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--text);
-  font-size: 0.82rem;
-  font-weight: 700;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
-}
-
-.floating-button:hover {
-  transform: translateY(-2px);
-}
-
-    /* HERO */
-
-    .hero {
-      display: flex;
-      align-items: center;
-      padding: 115px 0 38px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .hero-role {
-      margin-bottom: 17px;
-      color: var(--muted);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
+    .eyebrow {
+      font-size: 11px;
       text-transform: uppercase;
-    }
-
-    .hero h1 {
-  margin: 0;
-  max-width: 700px;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.8rem, 4.2vw, 4.4rem);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-}
-
-    .hero-copy {
-      max-width: 590px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .button {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 19px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 0.85rem;
+      letter-spacing: 3px;
       font-weight: 700;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+      color: var(--rose);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
+    h1, h2, h3, p { margin-top: 0; }
 
-    .button-primary {
-      background: var(--accent);
-      border-color: transparent;
-    }
-
-    /* PORTRAIT */
-
-    .portrait-frame {
-      width: 100%;
-      max-width: 370px;
-      height: 430px;
-      justify-self: end;
-      position: relative;
-      overflow: hidden;
-      border: 1.5px solid var(--text);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(217, 255, 112, 0.75),
-          rgba(255, 255, 255, 0.6)
-        );
-    }
-
-    .portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .portrait-placeholder {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .portrait-placeholder strong {
-      display: block;
-      margin-bottom: 7px;
+    .welcome h1 {
       font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      font-weight: 500;
+      font-size: clamp(35px, 6vw, 55px);
+      margin: 10px 0 7px;
+      letter-spacing: -1.5px;
     }
 
-    .portrait-placeholder p {
-      max-width: 230px;
-      margin: 0 auto;
+    .welcome p {
+      font-size: 14px;
       color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .portrait-tag {
-      position: absolute;
-      left: 13px;
-      bottom: 13px;
-      padding: 7px 10px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      font-size: 0.67rem;
-      font-weight: 700;
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.65fr 1.35fr;
-      gap: 60px;
-    }
-
-    .about-main {
-      max-width: 720px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 3.5vw, 3.6rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .about-main + .copy {
-      margin-top: 20px;
-    }
-
-    .about-photo-row {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: 0.55fr 1.45fr;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .about-photo {
-      min-height: 230px;
-      display: grid;
-      place-items: center;
-      border: 1.5px dashed var(--text);
-      background: rgba(255, 255, 255, 0.35);
-      text-align: center;
-      padding: 25px;
-    }
-
-    .about-photo strong {
-      display: block;
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      font-weight: 500;
-    }
-
-    .about-photo span {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    /* UX ACADEMY */
-
-    .project {
-      background: var(--dark);
-      color: white;
-    }
-
-    .project .label,
-    .project .copy {
-      color: rgba(255, 255, 255, 0.62);
-    }
-
-    .project-header {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 55px;
-      align-items: end;
-    }
-
-    .project-title {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3.7rem, 7vw, 6.5rem);
-      line-height: 0.9;
-      font-weight: 500;
-      letter-spacing: -0.05em;
-    }
-
-    .project-meta {
-      max-width: 500px;
-      color: rgba(255, 255, 255, 0.65);
-      font-size: 0.92rem;
-    }
-
-    .project-meta strong {
-      color: white;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 17px;
-    }
-
-    .project-tag {
-      padding: 7px 11px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 999px;
-      font-size: 0.67rem;
-    }
-
-    /* FEATURED SCREENSHOT */
-
-    .featured-shot-wrap {
-      margin-top: 45px;
-    }
-
-    .shot-label {
-      margin-bottom: 9px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .featured-shot {
-      min-height: 420px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      border: 1.5px dashed rgba(255, 255, 255, 0.35);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(217, 255, 112, 0.09),
-          rgba(255, 255, 255, 0.04)
-        );
-      text-align: center;
-      padding: 35px;
-    }
-
-    .featured-shot strong {
-      display: block;
-      margin-bottom: 8px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      font-weight: 500;
-    }
-
-    .featured-shot p {
-      max-width: 390px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.85rem;
-    }
-
-    /* CASE STUDIES */
-
-    .case-study {
-      padding: 75px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 65px;
-    }
-
-    .case-number {
-      margin-bottom: 12px;
-      color: var(--muted);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .case-title {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.7rem, 4.5vw, 4.4rem);
-      font-weight: 500;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-    }
-
-    .case-info {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .case-info p {
-      margin-top: 0;
-    }
-
-    .case-info h4 {
-      margin: 22px 0 7px;
-      color: var(--text);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .case-info ul {
-      padding-left: 17px;
       margin-bottom: 0;
     }
 
-    .case-info li {
-      margin-bottom: 4px;
-    }
+    .heart { color: #c66f95; }
 
-    /* SCREENSHOT GALLERY */
-
-    .gallery-title {
-      margin-top: 45px;
-      margin-bottom: 11px;
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .gallery {
+    .app-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 25px 12px;
+      max-width: 630px;
+      margin: 0 auto;
     }
 
-    .gallery-stack {
-      display: grid;
-      gap: 12px;
+    .app {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 9px;
+      min-width: 0;
+      transition: transform .2s ease;
     }
 
-    .screenshot-slot {
-      min-height: 350px;
-      position: relative;
+    .app:hover { transform: translateY(-5px); }
+    .app:focus-visible, button:focus-visible, a:focus-visible {
+      outline: 3px solid #a54e76;
+      outline-offset: 4px;
+    }
+
+    .app-icon {
+      width: clamp(57px, 8vw, 76px);
+      aspect-ratio: 1;
+      border-radius: 23px;
       display: grid;
       place-items: center;
-      padding: 28px;
-      border: 1.5px dashed rgba(21, 21, 21, 0.38);
-      background: rgba(255, 255, 255, 0.38);
+      font-size: 31px;
+      box-shadow: 0 7px 14px #78445d1b, inset 0 1px 1px #ffffffc9;
+      border: 1px solid #ffffff85;
+    }
+
+    .app:nth-child(6n + 1) .app-icon { background: linear-gradient(145deg,#fff4f7,#efb9ce); }
+    .app:nth-child(6n + 2) .app-icon { background: linear-gradient(145deg,#fff8f2,#eac9b6); }
+    .app:nth-child(6n + 3) .app-icon { background: linear-gradient(145deg,#f9f0ff,#d9c7ed); }
+    .app:nth-child(6n + 4) .app-icon { background: linear-gradient(145deg,#f5fffa,#c1e2d6); }
+    .app:nth-child(6n + 5) .app-icon { background: linear-gradient(145deg,#fffdf0,#f2df9c); }
+    .app:nth-child(6n) .app-icon { background: linear-gradient(145deg,#fff2ee,#f0b8b0); }
+
+    .app-label {
+      font-size: 12px;
+      font-weight: 600;
       text-align: center;
+      line-height: 1.3;
     }
 
-    .screenshot-slot.small {
-      min-height: 169px;
+    .signature {
+      margin-top: 26px;
+      text-align: center;
+      color: #92677b;
+      font-size: 11px;
     }
 
-    .screenshot-slot strong {
-      display: block;
-      margin-bottom: 6px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-    }
-
-    .screenshot-slot span {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    /* CAPABILITIES */
-
-    .capabilities {
-      background: var(--surface);
-    }
-
-    .capabilities-list {
-      margin-top: 40px;
-      border-top: 1px solid var(--line);
-    }
-
-    .capability-row {
-      display: grid;
-      grid-template-columns: 50px 0.8fr 1.2fr;
-      gap: 25px;
-      align-items: start;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .capability-row > span {
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .capability-row h3 {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 1.55rem;
-      font-weight: 500;
-    }
-
-    .capability-row p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    /* TOOLS */
-
-    .tools-list {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .tool {
-      min-height: 125px;
-      padding: 18px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .tool small {
-      display: block;
-      margin-bottom: 30px;
-      color: var(--muted);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .tool strong {
-      font-size: 1rem;
-    }
-
-    /* PROCESS */
-
-    .process {
-      background: var(--dark);
-      color: white;
-    }
-
-    .process .label,
-    .process .copy {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .process-step {
-      padding: 25px 20px;
-      border-right: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .process-step:last-child {
-      border-right: 0;
-    }
-
-    .process-step small {
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.7rem;
-    }
-
-    .process-step h3 {
-      margin: 35px 0 7px;
-      font-family: "Playfair Display", serif;
-      font-size: 1.55rem;
-      font-weight: 500;
-    }
-
-    .process-step p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.58);
-      font-size: 0.84rem;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      background: var(--accent);
-      padding: 80px 0;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 60px;
-      align-items: end;
-    }
-
-    .contact h2 {
-      margin: 0;
-      max-width: 700px;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(3.2rem, 6vw, 6rem);
-      font-weight: 500;
-      line-height: 0.92;
-      letter-spacing: -0.05em;
-    }
-
-    .contact-detail {
-      max-width: 420px;
-      font-size: 0.9rem;
-    }
-
-    .contact-detail p:first-child {
-      font-weight: 700;
-    }
-
-    .contact-email {
-      display: inline-block;
-      margin-top: 13px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid var(--text);
-      font-size: 0.95rem;
-      font-weight: 700;
-      word-break: break-word;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 20px 0;
-      background: var(--dark);
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.75rem;
-    }
-
-    .footer-inner {
+    .dock {
+      position: absolute;
+      z-index: 7;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255, 249, 252, .68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid #ffffff9c;
+      border-radius: 23px;
+      box-shadow: 0 8px 24px #85506a1b;
+    }
+
+    .dock button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 25px;
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      transition: background .2s, transform .2s;
+    }
+
+    .dock button:hover { background: #ffffffb8; transform: translateY(-3px); }
+
+    .app-window {
+      position: absolute;
+      z-index: 10;
+      inset: 53px 25px 88px;
+      background: var(--glass);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid #ffffffd1;
+      border-radius: 23px;
+      box-shadow: 0 15px 55px #70465b24;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: openApp .25s ease;
+    }
+
+    .app-window.active { display: flex; }
+
+    @keyframes openApp {
+      from { opacity: 0; transform: scale(.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .window-bar {
+      flex-shrink: 0;
+      min-height: 55px;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 12px;
+      padding: 12px 19px;
+      border-bottom: 1px solid #d8b8c628;
+      background: #fffafcb0;
     }
 
-    /* TABLET */
+    .window-title { font-weight: 700; font-size: 14px; }
 
-    @media (max-width: 950px) {
-      .hero-grid,
-      .about-grid,
-      .about-photo-row,
-      .project-header,
-      .case-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .window-controls { display: flex; gap: 7px; }
 
-      .hero-grid {
-        gap: 35px;
-      }
-
-      .portrait-frame {
-        justify-self: start;
-        max-width: 360px;
-        height: 420px;
-      }
-
-      .about-grid,
-      .project-header,
-      .case-grid {
-        gap: 30px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-stack {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .tools-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .control {
+      width: 29px;
+      height: 29px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      background: #f0dce5;
+      font-size: 15px;
     }
 
-    /* MOBILE */
+    .control.close { background: #e9b0c5; }
 
-    @media (max-width: 700px) {
-      .container {
-        width: min(calc(100% - 28px), var(--max));
-      }
+    .window-content {
+      padding: 25px clamp(18px, 4vw, 39px);
+      overflow-y: auto;
+      line-height: 1.75;
+      font-size: 14px;
+    }
 
-      .section {
-        padding: 60px 0;
-      }
+    .window-content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
 
-      #about {
-        padding-top: 35px;
-      }
+    .window-content h3 { font-size: 15px; margin-bottom: 5px; }
+    .window-content p { color: #765c69; }
 
-      .nav {
-        display: none;
-      }
+    .pill {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #f5e1e9;
+      border: 1px solid #edcbd9;
+      border-radius: 20px;
+      font-size: 11px;
+      margin: 3px 3px 3px 0;
+      color: #88546c;
+      font-weight: 600;
+    }
 
-      .hero {
-        padding: 100px 0 35px;
-      }
+    .content-card {
+      padding: 17px 18px;
+      border-radius: 16px;
+      background: #fffafbd9;
+      border: 1px solid #efdce4;
+      margin: 13px 0;
+    }
 
-      .hero h1 {
-        font-size: clamp(3.5rem, 17vw, 5rem);
-      }
+    .content-card p { margin-bottom: 0; }
+    .date { font-size: 11px; color: #ad7790; font-weight: 700; }
 
-      .hero-grid {
-        gap: 30px;
-      }
+    .action-link {
+      display: inline-block;
+      text-decoration: none;
+      background: #bc718f;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 5px 5px 5px 0;
+      transition: background .2s;
+    }
 
-      .portrait-frame {
-        width: 100%;
-        max-width: 330px;
-        height: 390px;
-      }
+    .action-link:hover { background: #9e5675; }
 
-      .about-photo {
-        min-height: 200px;
-      }
+    .home-button {
+      position: absolute;
+      z-index: 15;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #ffffffb0;
+      background: #f8e6ed;
+      box-shadow: inset 0 0 0 1px #d9a8bc;
+      cursor: pointer;
+    }
 
-      .featured-shot {
-        min-height: 300px;
-      }
+    .home-button:hover { background: white; }
 
-      .case-study {
-        padding: 60px 0;
-      }
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      color: #9d7888;
+      padding: 8px 0;
+    }
 
-      .case-title {
-        font-size: clamp(2.6rem, 13vw, 4rem);
-      }
+    @media (min-width: 700px) {
+      .app-grid { grid-template-columns: repeat(4, 1fr); }
+      .home { padding-top: 20px; }
+    }
 
-      .gallery-title {
-        margin-top: 35px;
-      }
-
-      .screenshot-slot {
-        min-height: 280px;
-      }
-
-      .gallery-stack {
-        grid-template-columns: 1fr;
-      }
-
-      .screenshot-slot.small {
-        min-height: 200px;
-      }
-
-      .capability-row {
-        grid-template-columns: 35px 1fr;
-        gap: 15px;
-      }
-
-      .capability-row p {
-        grid-column: 2;
-      }
-
-      .tools-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process-step {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      }
-
-      .contact {
-        padding: 65px 0;
-      }
-
-      .contact-grid {
-        gap: 35px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 5px;
-      }
+    @media (max-width: 540px) {
+      body { padding: 7px; }
+      .ipad { padding: 7px; border-radius: 26px; }
+      .screen { min-height: min(790px, 94svh); height: 90svh; border-radius: 21px; }
+      .status { padding: 0 17px; }
+      .home { padding: 12px 13px 85px; }
+      .welcome { padding: 24px 0 30px; }
+      .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px 5px; }
+      .app-icon { border-radius: 19px; }
+      .app-window { inset: 48px 9px 77px; border-radius: 18px; }
+      .window-content { padding: 21px 17px; }
+      .dock { bottom: 16px; gap: 7px; padding: 8px 10px; }
+      .dock button { width: 38px; height: 38px; font-size: 22px; }
+      .home-button { bottom: 1px; width: 32px; height: 32px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 
 <body>
+  <main class="ipad" aria-label="Gemel's iPad portfolio">
+    <section class="screen">
+      <header class="status">
+        <span id="clock">9:41</span>
+        <div class="status-right" aria-label="Connection and battery">
+          <span>Wi-Fi</span>
+          <span class="battery" aria-label="Battery"></span>
+        </div>
+      </header>
 
-  <!-- FLOATING CONTACT -->
+      <section class="home" id="homeScreen">
+        <div class="welcome">
+          <div class="eyebrow">A little corner of my world</div>
+          <h1>Hi, I'm Gemel <span class="heart">♡</span></h1>
+          <p>Virtual Assistant · Programme Coordination · Admin Support</p>
+        </div>
 
-  <div class="floating-contact">
-  <a href="#contact" class="floating-button">
-    ✉ &nbsp; Contact me
-  </a>
-</div>
+        <nav class="app-grid" aria-label="Portfolio apps">
+          <button class="app" data-app="about">
+            <span class="app-icon">🎀</span><span class="app-label">About Me</span>
+          </button>
+          <button class="app" data-app="experience">
+            <span class="app-icon">💼</span><span class="app-label">Experience</span>
+          </button>
+          <button class="app" data-app="projects">
+            <span class="app-icon">🗂️</span><span class="app-label">My Projects</span>
+          </button>
+          <button class="app" data-app="skills">
+            <span class="app-icon">🌷</span><span class="app-label">Skills & Tools</span>
+          </button>
+          <button class="app" data-app="resume">
+            <span class="app-icon">📄</span><span class="app-label">My Resume</span>
+          </button>
+          <button class="app" data-app="contact">
+            <span class="app-icon">💌</span><span class="app-label">Contact Me</span>
+          </button>
+          <button class="app" data-app="values">
+            <span class="app-icon">🫶🏻</span><span class="app-label">How I Work</span>
+          </button>
+          <button class="app" data-app="links">
+            <span class="app-icon">🔗</span><span class="app-label">Find Me Online</span>
+          </button>
+        </nav>
 
-  <!-- HEADER -->
+        <p class="signature">Made with care, coffee & a little pink magic ♡</p>
+      </section>
 
-  <header class="header">
-    <div class="container header-inner">
+      <section class="app-window" id="appWindow" aria-label="App content" aria-hidden="true">
+        <header class="window-bar">
+          <span class="window-title" id="windowTitle">About Me</span>
+          <div class="window-controls">
+            <button class="control" id="minimizeButton" aria-label="Return to home screen" title="Home">⌂</button>
+            <button class="control close" id="closeButton" aria-label="Close app" title="Close">×</button>
+          </div>
+        </header>
+        <article class="window-content" id="windowContent" tabindex="-1"></article>
+      </section>
 
-      <a href="#top" class="brand">
-  <span>Gemel Ann Macaraeg</span>
-</a>
-
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact">Contact</a>
+      <nav class="dock" aria-label="Quick access dock">
+        <button data-app="about" aria-label="About Me" title="About Me">🎀</button>
+        <button data-app="projects" aria-label="Projects" title="Projects">🗂️</button>
+        <button data-app="resume" aria-label="Resume" title="Resume">📄</button>
+        <button data-app="contact" aria-label="Contact" title="Contact">💌</button>
       </nav>
 
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="container hero-grid">
-
-        <div>
-
-          <div class="hero-role">
-            Marketing Operations • Programme Coordination • Growth Support
-          </div>
-
-          <h1>
-  I organise the work<br>
-  behind growing businesses.
-</h1>
-
-          <p class="hero-copy">
-            I help growing teams organise marketing, operations,
-            outreach and digital work so projects stay clear,
-            coordinated and moving forward.
-          </p>
-
-          <div class="hero-actions">
-
-            <a href="#work" class="button button-primary">
-              View My Work
-            </a>
-
-            <a href="#contact" class="button">
-              Let's work together
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="portrait-frame">
-
-          <!--
-            WHEN YOU HAVE YOUR PHOTO:
-
-            1. Delete the portrait-placeholder div below.
-            2. Add your image like this:
-
-            <img
-              src="images/gemel-photo.jpg"
-              alt="Gemel Ann Macaraeg"
-            >
-          -->
-
-          <div class="portrait-placeholder">
-            <div>
-              <strong>Your Photo</strong>
-
-              <p>
-                Add your professional portrait here.
-              </p>
-            </div>
-          </div>
-
-          <div class="portrait-tag">
-            Professional Portrait
-          </div>
-
-        </div>
-
-      </div>
+      <button class="home-button" id="homeButton" aria-label="Go to home screen" title="Home"></button>
     </section>
-
-    <!-- ABOUT -->
-
-    <section class="section" id="about">
-      <div class="container about-grid">
-
-        <div class="label">
-          01 / About
-        </div>
-
-        <div>
-
-          <div class="about-main">
-            I work where communication,
-            organisation and problem solving meet.
-          </div>
-
-          <p class="copy">
-            My experience includes programme coordination,
-            marketing operations, outreach, lead communication,
-            website QA, research and administrative support.
-          </p>
-
-          <div class="about-photo-row">
-
-            <div class="about-photo">
-              <div>
-                <strong>Second Photo</strong>
-                <span>Optional working or casual photo</span>
-              </div>
-            </div>
-
-            <p class="copy">
-              I am comfortable moving between people and systems.
-              That can mean following up with a lead, checking a
-              website journey, coordinating content, researching a
-              partnership opportunity or making sure the next action
-              does not get lost.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- UX ACADEMY -->
-
-    <section class="section project" id="work">
-      <div class="container">
-
-        <div class="label">
-          02 / Selected Work
-        </div>
-
-        <div class="project-header">
-
-          <h2 class="project-title">
-            UX Academy
-          </h2>
-
-          <div class="project-meta">
-
-            <p>
-              <strong>Role:</strong><br>
-              Programme Coordinator and Growth Support
-            </p>
-
-            <p>
-              I support UX Academy across marketing,
-              programme coordination, outreach, lead communication,
-              content, website QA, partnerships and operational work.
-            </p>
-
-            <div class="project-tags">
-              <span class="project-tag">Marketing Operations</span>
-              <span class="project-tag">Programme Coordination</span>
-              <span class="project-tag">Growth Support</span>
-              <span class="project-tag">Website QA</span>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="featured-shot-wrap">
-
-          <div class="shot-label">
-            Featured Project Screenshot
-          </div>
-
-          <div class="featured-shot">
-            <div>
-
-              <strong>
-                Main UX Academy Screenshot
-              </strong>
-
-              <p>
-                Add one strong project screenshot here, such as
-                the website, campaign calendar, masterclass page,
-                dashboard or project document.
-              </p>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CASE STUDY 01 -->
-
-    <section class="case-study">
-      <div class="container">
-
-        <div class="case-grid">
-
-          <div>
-            <div class="case-number">
-              Case Study 01
-            </div>
-
-            <h3 class="case-title">
-              Marketing &
-              Campaign Operations
-            </h3>
-          </div>
-
-          <div class="case-info">
-
-            <p>
-              I help organise marketing activity so campaigns,
-              events, content and deadlines remain visible
-              and coordinated.
-            </p>
-
-            <h4>What I worked on</h4>
-
-            <ul>
-              <li>Monthly content calendar planning</li>
-              <li>Masterclass and event promotion</li>
-              <li>Campaign coordination</li>
-              <li>Newsletter support</li>
-              <li>Content review</li>
-              <li>Marketing activity tracking</li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="gallery-title">
-          Screenshot Gallery
-        </div>
-
-        <div class="gallery">
-
-          <div class="screenshot-slot">
-            <div>
-              <strong>Content Calendar</strong>
-              <span>
-                Add your campaign planning or content calendar screenshot
-              </span>
-            </div>
-          </div>
-
-          <div class="gallery-stack">
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Campaign Asset</strong>
-                <span>
-                  Masterclass creative, poster or published campaign
-                </span>
-              </div>
-            </div>
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Newsletter</strong>
-                <span>
-                  Planning, draft or final output
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CASE STUDY 02 -->
-
-    <section class="case-study">
-      <div class="container">
-
-        <div class="case-grid">
-
-          <div>
-            <div class="case-number">
-              Case Study 02
-            </div>
-
-            <h3 class="case-title">
-              Partnerships &
-              Outreach
-            </h3>
-          </div>
-
-          <div class="case-info">
-
-            <p>
-              I research organisations, contacts and opportunities,
-              then help move conversations from initial outreach
-              toward the next useful step.
-            </p>
-
-            <h4>What I worked on</h4>
-
-            <ul>
-              <li>Partner and prospect research</li>
-              <li>Tailored outreach</li>
-              <li>Follow-up communication</li>
-              <li>Opportunity tracking</li>
-              <li>Directory and profile outreach</li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="gallery-title">
-          Screenshot Gallery
-        </div>
-
-        <div class="gallery">
-
-          <div class="screenshot-slot">
-            <div>
-              <strong>Outreach Tracker</strong>
-              <span>
-                Add a redacted spreadsheet or tracker
-              </span>
-            </div>
-          </div>
-
-          <div class="gallery-stack">
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Outreach Email</strong>
-                <span>
-                  Hide names, emails and private details
-                </span>
-              </div>
-            </div>
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Published Listing</strong>
-                <span>
-                  Add a public listing or partnership result
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CASE STUDY 03 -->
-
-    <section class="case-study">
-      <div class="container">
-
-        <div class="case-grid">
-
-          <div>
-            <div class="case-number">
-              Case Study 03
-            </div>
-
-            <h3 class="case-title">
-              Lead &
-              Enrolment Coordination
-            </h3>
-          </div>
-
-          <div class="case-info">
-
-            <p>
-              I support communication with interested leads
-              and help keep enquiries and follow-ups organised.
-            </p>
-
-            <h4>What I worked on</h4>
-
-            <ul>
-              <li>Lead follow-up</li>
-              <li>Enquiry communication</li>
-              <li>Hot and warm lead tracking</li>
-              <li>Follow-up reminders</li>
-              <li>Enrolment support</li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="gallery-title">
-          Screenshot Gallery
-        </div>
-
-        <div class="gallery">
-
-          <div class="screenshot-slot">
-            <div>
-              <strong>Lead Tracker</strong>
-              <span>
-                Use a fully redacted version
-              </span>
-            </div>
-          </div>
-
-          <div class="gallery-stack">
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Follow-up Example</strong>
-                <span>
-                  Example communication with private details hidden
-                </span>
-              </div>
-            </div>
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Enrolment Flow</strong>
-                <span>
-                  Screenshot of a process, page or tracker
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CASE STUDY 04 -->
-
-    <section class="case-study">
-      <div class="container">
-
-        <div class="case-grid">
-
-          <div>
-            <div class="case-number">
-              Case Study 04
-            </div>
-
-            <h3 class="case-title">
-              Website &
-              Journey QA
-            </h3>
-          </div>
-
-          <div class="case-info">
-
-            <p>
-              I review digital experiences from the user's point
-              of view, including course pages, mobile layouts,
-              content accuracy, links and enrolment journeys.
-            </p>
-
-            <h4>What I worked on</h4>
-
-            <ul>
-              <li>Desktop and mobile checks</li>
-              <li>Broken link checks</li>
-              <li>Course information accuracy</li>
-              <li>Enrolment flow testing</li>
-              <li>Post-update checks</li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="gallery-title">
-          Screenshot Gallery
-        </div>
-
-        <div class="gallery">
-
-          <div class="screenshot-slot">
-            <div>
-              <strong>Website QA</strong>
-              <span>
-                Main example showing an issue or page you reviewed
-              </span>
-            </div>
-          </div>
-
-          <div class="gallery-stack">
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Before</strong>
-                <span>Issue identified</span>
-              </div>
-            </div>
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>After</strong>
-                <span>Corrected or improved version</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CASE STUDY 05 -->
-
-    <section class="case-study">
-      <div class="container">
-
-        <div class="case-grid">
-
-          <div>
-            <div class="case-number">
-              Case Study 05
-            </div>
-
-            <h3 class="case-title">
-              Newsletter &
-              Content Strategy
-            </h3>
-          </div>
-
-          <div class="case-info">
-
-            <p>
-              I helped organise newsletter content into a simpler
-              structure with clearer topics, calls to action
-              and ways to measure performance.
-            </p>
-
-            <h4>What I worked on</h4>
-
-            <ul>
-              <li>Newsletter structure</li>
-              <li>Content format recommendations</li>
-              <li>CTA planning</li>
-              <li>Topic prioritisation</li>
-              <li>Performance measurement</li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="gallery-title">
-          Screenshot Gallery
-        </div>
-
-        <div class="gallery">
-
-          <div class="screenshot-slot">
-            <div>
-              <strong>Newsletter Strategy</strong>
-              <span>
-                Add your main strategy document screenshot
-              </span>
-            </div>
-          </div>
-
-          <div class="gallery-stack">
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Content Plan</strong>
-                <span>
-                  Structure or content planning screenshot
-                </span>
-              </div>
-            </div>
-
-            <div class="screenshot-slot small">
-              <div>
-                <strong>Final Output</strong>
-                <span>
-                  Published or completed newsletter
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CAPABILITIES -->
-
-    <section class="section capabilities" id="capabilities">
-      <div class="container">
-
-        <div class="label">
-          03 / Capabilities
-        </div>
-
-        <h2 class="title">
-          What I can support.
-        </h2>
-
-        <div class="capabilities-list">
-
-          <div class="capability-row">
-            <span>01</span>
-            <h3>Marketing Operations</h3>
-            <p>
-              Campaign coordination, content planning,
-              newsletter support, event promotion and reporting.
-            </p>
-          </div>
-
-          <div class="capability-row">
-            <span>02</span>
-            <h3>Growth & Partnerships</h3>
-            <p>
-              Research, prospecting, outreach,
-              lead follow-up and relationship coordination.
-            </p>
-          </div>
-
-          <div class="capability-row">
-            <span>03</span>
-            <h3>Programme Operations</h3>
-            <p>
-              Scheduling, communication, documentation,
-              task tracking and programme support.
-            </p>
-          </div>
-
-          <div class="capability-row">
-            <span>04</span>
-            <h3>Website & Digital QA</h3>
-            <p>
-              Website checks, user journeys,
-              content accuracy, links and digital listings.
-            </p>
-          </div>
-
-          <div class="capability-row">
-            <span>05</span>
-            <h3>Administrative Support</h3>
-            <p>
-              Research, documentation, records,
-              inbox coordination and follow-ups.
-            </p>
-          </div>
-
-          <div class="capability-row">
-            <span>06</span>
-            <h3>Research & Problem Solving</h3>
-            <p>
-              Finding information, comparing options,
-              investigating issues and turning findings into next steps.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TOOLS -->
-
-    <section class="section" id="tools">
-      <div class="container">
-
-        <div class="label">
-          04 / Tools & Platforms
-        </div>
-
-        <h2 class="title">
-          Tools behind the work.
-        </h2>
-
-        <div class="tools-list">
-
-          <div class="tool">
-            <small>Productivity</small>
-            <strong>Google Workspace</strong>
-          </div>
-
-          <div class="tool">
-            <small>Coordination</small>
-            <strong>Slack</strong>
-          </div>
-
-          <div class="tool">
-            <small>Meetings</small>
-            <strong>Zoom</strong>
-          </div>
-
-          <div class="tool">
-            <small>Reviews</small>
-            <strong>Trustpilot</strong>
-          </div>
-
-          <div class="tool">
-            <small>Directory</small>
-            <strong>Creativepool</strong>
-          </div>
-
-          <div class="tool">
-            <small>Research</small>
-            <strong>Crunchbase</strong>
-          </div>
-
-          <div class="tool">
-            <small>Development</small>
-            <strong>GitHub</strong>
-          </div>
-
-          <div class="tool">
-            <small>Advertising</small>
-            <strong>Meta Ads Manager</strong>
-          </div>
-
-          <div class="tool">
-            <small>Business</small>
-            <strong>Google Business Profile</strong>
-          </div>
-
-          <div class="tool">
-            <small>Website</small>
-            <strong>UX Academy Website</strong>
-          </div>
-
-          <div class="tool">
-            <small>AI</small>
-            <strong>ChatGPT</strong>
-          </div>
-
-          <div class="tool">
-            <small>Research</small>
-            <strong>Web Research</strong>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- HOW I WORK -->
-
-    <section class="section process">
-      <div class="container">
-
-        <div class="label">
-          05 / How I Work
-        </div>
-
-        <h2 class="title">
-          Understand. Organise.<br>
-          Execute. Improve.
-        </h2>
-
-        <div class="process-grid">
-
-          <div class="process-step">
-            <small>01</small>
-            <h3>Understand</h3>
-            <p>
-              Understand the goal, context and people involved.
-            </p>
-          </div>
-
-          <div class="process-step">
-            <small>02</small>
-            <h3>Organise</h3>
-            <p>
-              Turn information and tasks into a clear structure.
-            </p>
-          </div>
-
-          <div class="process-step">
-            <small>03</small>
-            <h3>Execute</h3>
-            <p>
-              Communicate, coordinate and move the work forward.
-            </p>
-          </div>
-
-          <div class="process-step">
-            <small>04</small>
-            <h3>Improve</h3>
-            <p>
-              Notice what can be clearer, faster or easier.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-      <div class="container contact-grid">
-
-        <h2>
-          Have work that needs organising?
-        </h2>
-
-        <div class="contact-detail">
-
-          <p>
-            Based in the Philippines.
-          </p>
-
-          <p>
-            Open to remote opportunities in marketing operations,
-            programme coordination, growth support
-            and administrative operations.
-          </p>
-
-          <a
-            href="mailto:gemelmmacaraeg.biz@gmail.com"
-            class="contact-email"
-          >
-            gemelmmacaraeg.biz@gmail.com
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- FOOTER -->
-
-  <footer>
-    <div class="container footer-inner">
-
-      <span>
-        © <span id="year"></span> Gemel Ann Macaraeg
-      </span>
-
-      <span>
-        Based in the Philippines
-      </span>
-
-    </div>
-  </footer>
-
   <script>
-    const body = document.body;
+    // PERSONALIZE THESE DETAILS BEFORE SHARING YOUR PORTFOLIO.
+    const portfolio = {
+      name: "Gemel Ann Macaraeg",
+      email: "YOUR_EMAIL_HERE",
+      linkedin: "https://www.linkedin.com/in/gemel-macaraeg-011163413/",
+      resume: "", // Add your resume PDF URL after uploading it to your repository.
+    };
 
-    function updateHeader() {
-      if (window.scrollY > 90) {
-        body.classList.add("scrolled");
-      } else {
-        body.classList.remove("scrolled");
+    const apps = {
+      about: {
+        title: "A Little About Me",
+        html: `
+          <div class="eyebrow">Hello there!</div>
+          <h2>Organized, curious & ready to help. ♡</h2>
+          <p>I'm ${portfolio.name}, a detail-oriented professional from the Philippines who enjoys bringing structure to busy workflows, keeping information organized, and helping projects move forward.</p>
+          <p>My experience includes programme coordination, administrative support, research, documentation, and outreach. I enjoy learning new tools, following clear processes, and turning scattered information into something easier to manage.</p>
+          <div class="content-card"><h3>What I can bring to your team</h3><p>Thoughtful organization, reliable follow-through, clear written communication, and a willingness to learn your systems.</p></div>
+          <span class="pill">Remote-ready</span><span class="pill">Detail-oriented</span><span class="pill">Always learning</span>
+        `
+      },
+
+      experience: {
+        title: "My Experience",
+        html: `
+          <div class="eyebrow">Where I've learned and grown</div>
+          <h2>Experience & Background</h2>
+          <div class="content-card">
+            <span class="date">JULY 2026 – NOVEMBER 2026 · CONTRACT</span>
+            <h3>Programme Coordinator / Marketing Operations Support</h3>
+            <p><strong>UX Academy</strong></p>
+            <p>Supported programme coordination, student and instructor communications, scheduling, research, outreach, content operations, and administrative follow-ups for an online UX education business.</p>
+          </div>
+          <div class="content-card">
+            <span class="date">MARCH 2025</span>
+            <h3>Criminology Intern</h3>
+            <p><strong>Bayambang Municipal Police Station</strong></p>
+            <p>Encoded blotter records, prepared daily reports, and organized and reviewed application documents.</p>
+          </div>
+          <div class="content-card">
+            <span class="date">JANUARY 2025</span>
+            <h3>Class Commander</h3>
+            <p>Coordinated four officers and supported personnel accountability and attendance across two platoons during internship training.</p>
+          </div>
+          <div class="content-card">
+            <span class="date">SEPTEMBER 2023 – APRIL 2024</span>
+            <h3>Vice President · Claiders Organization</h3>
+            <p>Supported incident reporting, first-aid extension activities, and basic water search and rescue training coordination.</p>
+          </div>
+        `
+      },
+
+      projects: {
+        title: "My Projects",
+        html: `
+          <div class="eyebrow">A closer look at my work</div>
+          <h2>Selected Work</h2>
+          <p>Examples of the tasks and workflows I've supported. Client-sensitive details are intentionally excluded.</p>
+          <div class="content-card">
+            <span class="pill">Research & Audit</span>
+            <h3>Brand Rename Consistency Audit</h3>
+            <p>Reviewed business touchpoints for outdated branding, including website pages, blog links, directories, email, social profiles, and documents. Flagged inconsistencies that needed updating.</p>
+          </div>
+          <div class="content-card">
+            <span class="pill">Programme Operations</span>
+            <h3>Course Coordination & Follow-ups</h3>
+            <p>Supported session scheduling, student and instructor communication, follow-up tracking, and coordination of outstanding programme tasks.</p>
+          </div>
+          <div class="content-card">
+            <span class="pill">Administrative Support</span>
+            <h3>Records & Documentation</h3>
+            <p>Organized records, encoded information, prepared reports, and reviewed documents with attention to accuracy and consistency.</p>
+          </div>
+          <p><em>Next step: add redacted screenshots or sample trackers that you're permitted to share.</em></p>
+        `
+      },
+
+      skills: {
+        title: "Skills & Tools",
+        html: `
+          <div class="eyebrow">My digital toolkit</div>
+          <h2>Skills I Bring to the Table</h2>
+          <h3>Core skills</h3>
+          <span class="pill">Programme Coordination</span>
+          <span class="pill">Administrative Support</span>
+          <span class="pill">Online Research</span>
+          <span class="pill">Lead Generation</span>
+          <span class="pill">Documentation</span>
+          <span class="pill">Data Entry</span>
+          <span class="pill">Written Communication</span>
+          <span class="pill">Scheduling & Follow-ups</span>
+          <span class="pill">Task Organization</span>
+          <h3 style="margin-top:22px">Tools & platforms</h3>
+          <span class="pill">Google Workspace</span>
+          <span class="pill">Slack</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">ChatGPT</span>
+          <span class="pill">Spreadsheets</span>
+          <p style="margin-top:18px">I can adapt to new tools through documentation, instructions, and hands-on practice. My focus is on using the right process to keep work accurate and organized.</p>
+        `
+      },
+
+      resume: {
+        title: "My Resume",
+        html: `
+          <div class="eyebrow">A snapshot of my background</div>
+          <h2>Want the formal version?</h2>
+          <p>My resume brings together my work experience, education, skills, and qualifications.</p>
+          <div class="content-card">
+            <h3>${portfolio.name}</h3>
+            <p>Virtual Assistant · Programme Coordination · Administrative Support</p>
+            <p>Philippines · Open to remote opportunities</p>
+          </div>
+          ${portfolio.resume
+            ? `<a class="action-link" href="${portfolio.resume}" target="_blank" rel="noopener">View my resume ↗</a>`
+            : `<p><strong>Your resume PDF hasn't been linked yet.</strong></p><p>Upload your PDF to the repository, then add its path to the resume setting in the code. For example: <code>resume: "resume.pdf"</code></p>`}
+        `
+      },
+
+      contact: {
+        title: "Let's Connect",
+        html: `
+          <div class="eyebrow">Your next project could start here</div>
+          <h2>Let's make work feel lighter. ♡</h2>
+          <p>Looking for someone to support your day-to-day operations, keep tasks organized, or help with research and coordination? I'd love to hear about your needs.</p>
+          <div class="content-card">
+            <h3>Professional email</h3>
+            <p>${portfolio.email === "YOUR_EMAIL_HERE" ? "Add your preferred professional email in the portfolio settings." : portfolio.email}</p>
+            ${portfolio.email !== "YOUR_EMAIL_HERE" ? `<a class="action-link" href="mailto:${portfolio.email}">Send me an email ↗</a>` : ""}
+          </div>
+          <a class="action-link" href="${portfolio.linkedin}" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+          <p style="margin-top:18px">Thank you for stopping by my little digital space. I hope we get to work together!</p>
+        `
+      },
+
+      values: {
+        title: "How I Work",
+        html: `
+          <div class="eyebrow">A little about my work style</div>
+          <h2>Thoughtful work, one step at a time.</h2>
+          <div class="content-card"><h3>01 · Get organized</h3><p>I like having clear priorities, documented tasks, and a reliable place to track progress.</p></div>
+          <div class="content-card"><h3>02 · Communicate clearly</h3><p>I value written instructions, timely updates, and asking questions when something needs clarification.</p></div>
+          <div class="content-card"><h3>03 · Keep learning</h3><p>When I encounter a new tool or process, I use available documentation and tutorials to build my understanding.</p></div>
+          <div class="content-card"><h3>04 · Follow through</h3><p>I aim to keep details visible, track next steps, and make outstanding items easier to manage.</p></div>
+        `
+      },
+
+      links: {
+        title: "Find Me Online",
+        html: `
+          <div class="eyebrow">Let's stay connected</div>
+          <h2>Find me around the web.</h2>
+          <div class="content-card"><h3>LinkedIn</h3><p>Connect with me for professional updates and opportunities.</p><a class="action-link" href="${portfolio.linkedin}" target="_blank" rel="noopener">Visit my LinkedIn ↗</a></div>
+          <div class="content-card"><h3>Portfolio website</h3><p>You're already here! Feel free to explore the apps and learn more about my background.</p></div>
+          <div class="content-card"><h3>GitHub</h3><p>Explore my portfolio website source code.</p><a class="action-link" href="https://github.com/gemel-ann/gemel-ann.github.io" target="_blank" rel="noopener">View repository ↗</a></div>
+        `
       }
+    };
+
+    const homeScreen = document.getElementById("homeScreen");
+    const appWindow = document.getElementById("appWindow");
+    const windowTitle = document.getElementById("windowTitle");
+    const windowContent = document.getElementById("windowContent");
+
+    function openApp(appName) {
+      const app = apps[appName];
+      if (!app) return;
+
+      windowTitle.textContent = app.title;
+      windowContent.innerHTML = app.html;
+      homeScreen.hidden = true;
+      appWindow.classList.add("active");
+      appWindow.setAttribute("aria-hidden", "false");
+      windowContent.scrollTop = 0;
+      windowContent.focus();
     }
 
-    updateHeader();
+    function goHome() {
+      appWindow.classList.remove("active");
+      appWindow.setAttribute("aria-hidden", "true");
+      homeScreen.hidden = false;
+    }
 
-    window.addEventListener(
-      "scroll",
-      updateHeader,
-      { passive: true }
-    );
+    document.querySelectorAll("[data-app]").forEach(button => {
+      button.addEventListener("click", () => openApp(button.dataset.app));
+    });
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("homeButton").addEventListener("click", goHome);
+    document.getElementById("closeButton").addEventListener("click", goHome);
+    document.getElementById("minimizeButton").addEventListener("click", goHome);
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") goHome();
+    });
+
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent =
+        now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+    }
+
+    updateClock();
+    setInterval(updateClock, 30000);
   </script>
-
 </body>
 </html>
