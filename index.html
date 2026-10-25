@@ -185,7 +185,9 @@
     .notification-copy small { display:block; font-size:10px; font-weight:500; color:#a67b8e; margin-bottom:4px; }
     .notification-copy span { display:block; font-size:11px; line-height:1.5; color:#745361; }
     .notification-signoff { text-align:center; font-size:10px; color:#b17d95; margin:13px 0 2px; }
-    .notification-empty { text-align:center; padding:24px 8px; font-size:12px; color:#a67b8e; }
+    .notification-empty { text-align:center; padding:24px 8px; font-size:12px; color:#a67b8e; animation: notificationPop .28s ease-out both; }
+    .notification-item.clearing { animation: notificationDismiss .24s ease forwards; }
+    @keyframes notificationDismiss { to { opacity:0; transform:translateX(18px) scale(.96); max-height:0; margin:0; padding-top:0; padding-bottom:0; } }
     @media (max-width:540px) { .notification-panel { top:45px; right:8px; padding:13px; } }
 
     .home {
@@ -666,7 +668,6 @@
       .app-icon { width: 58px; border-radius: 19px; }
       .app-label { font-size: 10px; }
       .app-group-title { font-size: 10px; letter-spacing: 1.15px; }
-      .ipad::before { top: 48px; right: 19px; font-size: 12px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1029,10 +1030,44 @@
       notificationToggle.setAttribute("aria-expanded", String(opening));
       if (opening) notificationDot.hidden = true;
     });
+    const originalNotificationContent = notificationPanel.innerHTML;
     clearNotifications.addEventListener("click", () => {
-      notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">All caught up, lovely! ♡</div>';
-      document.getElementById("restoreNotifications").addEventListener("click", () => window.location.reload());
+      const items = [...notificationPanel.querySelectorAll(".notification-item")];
+      if (!items.length) return;
+      clearNotifications.disabled = true;
+      clearNotifications.textContent = "Clearing…";
+      items.forEach((item, index) => {
+        item.style.animationDelay = (index * 65) + "ms";
+        item.classList.add("clearing");
+      });
+      window.setTimeout(() => {
+        notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">✨ All caught up, lovely! ♡<br><br>You’re all clear for now.</div>';
+        document.getElementById("restoreNotifications").addEventListener("click", () => {
+          notificationPanel.innerHTML = originalNotificationContent;
+          document.getElementById("clearNotifications").addEventListener("click", clearNotificationsHandler);
+          document.querySelectorAll("[data-notification-app]").forEach(item => {
+            item.addEventListener("click", () => {
+              const target = item.dataset.notificationApp;
+              closeNotifications();
+              openApp(target);
+            });
+          });
+        });
+      }, 360);
     });
+    function clearNotificationsHandler() {
+      const items = [...notificationPanel.querySelectorAll(".notification-item")];
+      if (!items.length) return;
+      clearNotifications.disabled = true;
+      items.forEach((item, index) => {
+        item.style.animationDelay = (index * 65) + "ms";
+        item.classList.add("clearing");
+      });
+      window.setTimeout(() => {
+        notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">✨ All caught up, lovely! ♡<br><br>You’re all clear for now.</div>';
+        document.getElementById("restoreNotifications").addEventListener("click", () => window.location.reload());
+      }, 360);
+    }
     document.querySelectorAll("[data-notification-app]").forEach(item => {
       item.addEventListener("click", () => {
         const target = item.dataset.notificationApp;
