@@ -617,6 +617,46 @@
     }
 
 
+
+    /* Compact 3x3 home screen: keep every app visible without scrolling. */
+    .home {
+      box-sizing: border-box;
+      height: calc(100% - 42px);
+      padding: 4px 24px 68px;
+      overflow: hidden;
+    }
+    .welcome { padding: 8px 0 14px; }
+    .welcome h1 { font-size: clamp(30px, 4.5vw, 46px); margin: 7px 0 5px; }
+    .welcome p { font-size: 12px; line-height: 1.45; }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px 12px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .home-app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; }
+    .app-icon { width: 58px; border-radius: 18px; }
+    .app { gap: 5px; }
+    .app-label { font-size: 11px; line-height: 1.2; }
+    @media (max-width: 699px) {
+      .home { padding: 4px 13px 64px; overflow: hidden; }
+      .welcome { padding: 8px 0 13px; }
+      .welcome h1 { font-size: clamp(27px, 7vw, 38px); }
+      .welcome p { font-size: 11px; }
+      .app-grid { gap: 15px 7px; }
+      .home-app-grid { gap: 15px 7px; }
+      .app-icon { width: 49px; border-radius: 16px; }
+      .app-label { font-size: 10px; }
+    }
+    @media (max-height: 720px) {
+      .home { padding-top: 2px; padding-bottom: 60px; }
+      .welcome { padding: 4px 0 9px; }
+      .welcome h1 { font-size: clamp(25px, 4vw, 36px); }
+      .app-icon { width: 48px; border-radius: 15px; }
+      .home-app-grid { gap: 11px 8px; }
+    }
+
     /* Dreamy coquette polish: restore roomy icons, add soft gloss and gentle details. */
     .home {
       padding: 8px 24px 84px;
