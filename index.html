@@ -648,18 +648,6 @@
       box-shadow: 0 10px 32px rgba(160,92,122,.16), inset 0 1px 0 rgba(255,255,255,.9);
       backdrop-filter: blur(18px);
     }
-    .ipad::before {
-      content: "✧  ♡  ✧";
-      position: absolute;
-      z-index: 2;
-      top: 53px;
-      right: 30px;
-      color: rgba(255,255,255,.82);
-      font-size: 15px;
-      letter-spacing: 5px;
-      pointer-events: none;
-      text-shadow: 0 1px 8px rgba(201,117,153,.22);
-    }
     @media (max-width: 699px) {
       .home { padding: 8px 13px 82px; }
       .welcome { padding: 12px 0 18px; }
@@ -1031,52 +1019,33 @@
       if (opening) notificationDot.hidden = true;
     });
     const originalNotificationContent = notificationPanel.innerHTML;
-    clearNotifications.addEventListener("click", () => {
-      const items = [...notificationPanel.querySelectorAll(".notification-item")];
-      if (!items.length) return;
-      clearNotifications.disabled = true;
-      clearNotifications.textContent = "Clearing…";
-      items.forEach((item, index) => {
-        item.style.animationDelay = (index * 65) + "ms";
-        item.classList.add("clearing");
-      });
-      window.setTimeout(() => {
-        notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">✨ All caught up, lovely! ♡<br><br>You’re all clear for now.</div>';
-        document.getElementById("restoreNotifications").addEventListener("click", () => {
-          notificationPanel.innerHTML = originalNotificationContent;
-          document.getElementById("clearNotifications").addEventListener("click", clearNotificationsHandler);
-          document.querySelectorAll("[data-notification-app]").forEach(item => {
-            item.addEventListener("click", () => {
-              const target = item.dataset.notificationApp;
-              closeNotifications();
-              openApp(target);
-            });
-          });
-        });
-      }, 360);
-    });
-    function clearNotificationsHandler() {
-      const items = [...notificationPanel.querySelectorAll(".notification-item")];
-      if (!items.length) return;
-      clearNotifications.disabled = true;
-      items.forEach((item, index) => {
-        item.style.animationDelay = (index * 65) + "ms";
-        item.classList.add("clearing");
-      });
-      window.setTimeout(() => {
-        notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">✨ All caught up, lovely! ♡<br><br>You’re all clear for now.</div>';
-        document.getElementById("restoreNotifications").addEventListener("click", () => window.location.reload());
-      }, 360);
+    function showClearedNotifications() {
+      notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" data-restore-notifications>Restore</button></div><div class="notification-empty">✨ All caught up, lovely! ♡<br><br>You’re all clear for now.</div>';
     }
-    document.querySelectorAll("[data-notification-app]").forEach(item => {
-      item.addEventListener("click", () => {
+    notificationPanel.addEventListener("click", event => {
+      if (event.target.closest("#clearNotifications")) {
+        const items = [...notificationPanel.querySelectorAll(".notification-item")];
+        if (!items.length) return;
+        const clearButton = event.target.closest("#clearNotifications");
+        clearButton.disabled = true;
+        clearButton.textContent = "Clearing…";
+        items.forEach((item, index) => {
+          item.style.animationDelay = (index * 65) + "ms";
+          item.classList.add("clearing");
+        });
+        window.setTimeout(showClearedNotifications, 360);
+        return;
+      }
+      if (event.target.closest("[data-restore-notifications]")) {
+        notificationPanel.innerHTML = originalNotificationContent;
+        return;
+      }
+      const item = event.target.closest("[data-notification-app]");
+      if (item) {
         const target = item.dataset.notificationApp;
         closeNotifications();
         openApp(target);
-      });
-    });
-    document.addEventListener("click", event => {
-      if (!notificationPanel.hidden && !notificationPanel.contains(event.target) && !notificationToggle.contains(event.target)) closeNotifications();
+      }
     });
 
     document.getElementById("homeButton").addEventListener("click", goHome);
