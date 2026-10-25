@@ -765,18 +765,24 @@
       line-height: 1.25;
     }
     @media (max-width: 699px) {
-      #homeScreen.home { padding: 8px 14px 30px; }
-      #homeScreen .welcome { padding: 8px 0 18px; }
-      #homeScreen .home-app-grid { gap: 13px 8px; }
-      #homeScreen .app-icon { width: 54px; }
-      #homeScreen .app-label { font-size: 10px; }
-      #homeScreen .signature { margin-top: 14px; }
+      /* Keep the home screen content compact and vertically balanced above the dock. */
+      #homeScreen.home {
+        height: calc(100% - 42px);
+        padding: 4px 14px 0;
+        overflow: hidden;
+      }
+      #homeScreen .welcome { padding: 4px 0 12px; }
+      #homeScreen .home-app-grid { gap: 10px 8px; }
+      #homeScreen .app-icon { width: 50px; }
+      #homeScreen .app-label { font-size: 10px; line-height: 1.15; }
+      #homeScreen .signature { margin-top: 10px; font-size: 10px; }
     }
-    @media (max-height: 720px) {
-      #homeScreen.home { padding-top: 3px; padding-bottom: 64px; }
-      #homeScreen .welcome { padding: 3px 0 10px; }
-      #homeScreen .home-app-grid { gap: 11px 10px; }
-      #homeScreen .app-icon { width: 49px; }
+    @media (max-width: 699px) and (max-height: 760px) {
+      #homeScreen.home { padding-top: 2px; }
+      #homeScreen .welcome { padding-bottom: 9px; }
+      #homeScreen .home-app-grid { gap: 8px 8px; }
+      #homeScreen .app-icon { width: 46px; }
+      #homeScreen .signature { margin-top: 7px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
