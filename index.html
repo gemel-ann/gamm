@@ -920,12 +920,12 @@
           <div class="eyebrow">Your next project could start here</div>
           <h2>Let's make work feel lighter. ♡</h2>
           <p>Looking for someone to support your day-to-day operations, keep tasks organized, or help with research and coordination? I'd love to hear about your needs.</p>
-          <form class="contact-form" id="contactForm">
-            <label>Your name<input name="senderName" required placeholder="What should I call you?"></label>
-            <label>Your email<input name="senderEmail" type="email" required placeholder="you@example.com"></label>
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqppearl" method="POST">
+            <label>Your name<input name="name" required placeholder="What should I call you?"></label>
+            <label>Your email<input name="email" type="email" required placeholder="you@example.com"></label>
             <label>What can I help with?<textarea name="message" required placeholder="Tell me a little about your project or role..."></textarea></label>
-            <button class="action-link" type="submit">Prepare my message ♡</button>
-            <p class="contact-notice" id="contactNotice" role="status"></p>
+            <button class="action-link" type="submit">Send message ♡</button>
+            <p class="contact-notice" id="contactNotice" role="status" aria-live="polite"></p>
           </form>
           <div class="content-card contact-email-card">
             <div class="contact-email-icon" aria-hidden="true">♡</div>
@@ -994,18 +994,33 @@
       windowContent.scrollTop = 0;
       windowContent.focus();
       const contactForm = document.getElementById("contactForm");
-      if (contactForm) contactForm.addEventListener("submit", event => {
+      if (contactForm) contactForm.addEventListener("submit", async event => {
         event.preventDefault();
         const notice = document.getElementById("contactNotice");
-        if (!portfolio.email || portfolio.email === "YOUR_EMAIL_HERE") {
-          notice.textContent = "The contact form needs your professional email added to the portfolio settings first. LinkedIn is available below in the meantime.";
-          return;
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = "Send message ♡";
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending your note… ♡";
+        notice.textContent = "";
+        try {
+          const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: new FormData(contactForm),
+            headers: { "Accept": "application/json" }
+          });
+          if (response.ok) {
+            contactForm.reset();
+            notice.textContent = "Your message has been sent! Thank you for reaching out. ♡";
+          } else {
+            const result = await response.json().catch(() => ({}));
+            notice.textContent = result.errors?.map(error => error.message).join(" ") || "Oops, your message couldn't be sent. Please try again in a moment. ♡";
+          }
+        } catch (error) {
+          notice.textContent = "We couldn't connect just now. Please check your internet and try again. ♡";
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
         }
-        const data = new FormData(contactForm);
-        const subject = encodeURIComponent("Portfolio enquiry from " + data.get("senderName"));
-        const body = encodeURIComponent("Name: " + data.get("senderName") + "\nEmail: " + data.get("senderEmail") + "\n\n" + data.get("message"));
-        window.location.href = "mailto:" + portfolio.email + "?subject=" + subject + "&body=" + body;
-        notice.textContent = "Your email app should open with your message ready to review and send.";
       });
     }
 
