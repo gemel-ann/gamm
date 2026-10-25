@@ -185,9 +185,9 @@
     .notification-copy small { display:block; font-size:10px; font-weight:500; color:#a67b8e; margin-bottom:4px; }
     .notification-copy span { display:block; font-size:11px; line-height:1.5; color:#745361; }
     .notification-signoff { text-align:center; font-size:10px; color:#b17d95; margin:13px 0 2px; }
-    .notification-empty { text-align:center; padding:24px 8px; font-size:12px; color:#a67b8e; animation: notificationPop .28s ease-out both; }
-    .notification-item.clearing { animation: notificationDismiss .24s ease forwards; }
-    @keyframes notificationDismiss { to { opacity:0; transform:translateX(18px) scale(.96); max-height:0; margin:0; padding-top:0; padding-bottom:0; } }
+    .notification-empty { text-align:center; padding:24px 8px; font-size:12px; color:#a67b8e; animation: notificationPop .42s cubic-bezier(.2,.8,.2,1) both; }
+    .notification-item.clearing { overflow:hidden; animation: notificationDismiss .44s cubic-bezier(.22,.75,.25,1) forwards; }
+    @keyframes notificationDismiss { 0% { opacity:1; transform:translateX(0) scale(1); max-height:180px; } 65% { opacity:.35; transform:translateX(8px) scale(.99); } 100% { opacity:0; transform:translateX(14px) scale(.97); max-height:0; margin-top:0; margin-bottom:0; padding-top:0; padding-bottom:0; } }
     @media (max-width:540px) { .notification-panel { top:45px; right:8px; padding:13px; } }
 
     .home {
@@ -1030,10 +1030,10 @@
         clearButton.disabled = true;
         clearButton.textContent = "Clearing…";
         items.forEach((item, index) => {
-          item.style.animationDelay = (index * 65) + "ms";
+          item.style.animationDelay = (index * 115) + "ms";
           item.classList.add("clearing");
         });
-        window.setTimeout(showClearedNotifications, 360);
+        window.setTimeout(showClearedNotifications, 850);
         return;
       }
       if (event.target.closest("[data-restore-notifications]")) {
