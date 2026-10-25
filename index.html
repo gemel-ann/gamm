@@ -536,6 +536,57 @@
       .home-button { bottom: 1px; width: 32px; height: 32px; }
     }
 
+
+    /* Compact home screen: keep the full app menu visible without scrolling. */
+    .home {
+      padding: 5px 22px 64px;
+      overflow: hidden;
+    }
+    .welcome { padding: 3px 0 12px; }
+    .welcome h1 { font-size: clamp(30px, 4.5vw, 43px); margin: 5px 0; }
+    .welcome p { font-size: 12px; }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+      max-width: 850px;
+    }
+    .app-group-title {
+      font-size: 10px;
+      letter-spacing: 1.1px;
+      margin-bottom: 7px;
+      padding-bottom: 5px;
+    }
+    .app-group-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 5px;
+    }
+    .app { gap: 4px; }
+    .app-icon { width: 55px; border-radius: 17px; }
+    .app-label { font-size: 10px; }
+    .signature { margin-top: 10px; font-size: 10px; }
+
+    @media (max-width: 699px) {
+      .home { padding: 5px 10px 62px; }
+      .welcome { padding: 3px 0 10px; }
+      .welcome h1 { font-size: 31px; }
+      .welcome p { font-size: 10px; }
+      .app-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .app-group-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px 3px;
+      }
+      .app-icon { width: 45px; border-radius: 14px; }
+      .app-label { font-size: 10px; line-height: 1.15; }
+      .app-group-title { font-size: 9px; margin-bottom: 5px; padding-bottom: 4px; }
+      .app { gap: 3px; }
+      .signature { margin-top: 7px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
