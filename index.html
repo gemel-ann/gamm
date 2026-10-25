@@ -702,13 +702,12 @@
         <button class="notification-item" data-notification-app="contact">
           <span class="notification-icon">💌</span><span class="notification-copy"><strong>Let's connect</strong><small>Anytime</small><span>Have a project in mind? I'd love to hear from you. ♡</span></span>
         </button>
-        <p class="notification-signoff">Made with care, a little imagination & pink magic ♡</p>
       </section>
 
       <section class="lock-screen" id="lockScreen" aria-label="Portfolio lock screen">
         <div><div class="lock-top">♡ Welcome, lovely visitor ♡</div><div class="lock-clock" id="lockClock">09:41</div><div class="lock-date" id="lockDate">A little pink moment, just for you</div></div>
         <div class="lock-center"><div class="lock-bow">୨୧</div><h2>Gemel Ann</h2><p>Virtual Assistant · Programme Coordination</p></div>
-        <div><button class="unlock-button" id="unlockButton">Tap to unlock ♡</button></div>
+        <div><button class="unlock-button" id="unlockButton">Tap to unlock ♡</button><div class="lock-hint">Made with care, a little imagination &amp; pink magic ♡</div></div>
       </section>
       <section class="home" id="homeScreen" hidden>
         <div class="welcome">
@@ -745,6 +744,7 @@
           </button></div></div>
         </nav>
 
+        <p class="signature">Made with care, a little imagination &amp; pink magic ♡</p>
       </section>
 
       <section class="app-window" id="appWindow" aria-label="App content" aria-hidden="true">
@@ -927,7 +927,6 @@
           <div class="content-card">
             <h3>Professional email</h3>
             <p>${portfolio.email === "YOUR_EMAIL_HERE" ? "Add your preferred professional email in the portfolio settings." : portfolio.email}</p>
-            ${portfolio.email !== "YOUR_EMAIL_HERE" ? `<a class="action-link" href="mailto:${portfolio.email}">Send me an email ↗</a>` : ""}
           </div>
           <a class="action-link" href="${portfolio.linkedin}" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
           <p style="margin-top:18px">Thank you for stopping by my little digital space. I hope we get to work together!</p>
@@ -1031,7 +1030,7 @@
       if (opening) notificationDot.hidden = true;
     });
     clearNotifications.addEventListener("click", () => {
-      notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">All caught up, lovely! ♡</div><p class="notification-signoff">Made with care, a little imagination & pink magic ♡</p>';
+      notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">All caught up, lovely! ♡</div>';
       document.getElementById("restoreNotifications").addEventListener("click", () => window.location.reload());
     });
     document.querySelectorAll("[data-notification-app]").forEach(item => {
