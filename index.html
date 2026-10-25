@@ -893,6 +893,9 @@
           <button class="app" data-app="values">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 51S9 37 9 23c0-11 14-15 23-3 9-12 23-8 23 3 0 14-23 28-23 28Z" fill="#f2b7cf" stroke="#b96588" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 28c3-3 6-3 9 0M35 28c3-3 6-3 9 0" fill="none" stroke="#fff7fb" stroke-width="2.4" stroke-linecap="round"/><path d="M25 36c4 4 10 4 14 0" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="app-label">How I Work</span>
           </button>
+          <button class="app" data-app="services">
+            <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="13" width="44" height="39" rx="7" fill="#fff7fb" stroke="#b96588" stroke-width="2.4"/><path d="M21 25h22M21 33h22M21 41h14" stroke="#b96588" stroke-width="2.6" stroke-linecap="round"/><circle cx="45" cy="43" r="8" fill="#f1c0d5" stroke="#b96588" stroke-width="2"/><path d="m41 43 3 3 5-6" fill="none" stroke="#b96588" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">Services</span>
+          </button>
           <button class="app" data-app="projects">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M9 20a5 5 0 0 1 5-5h13l5 6h18a5 5 0 0 1 5 5v21a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5Z" fill="#e8d8f0" stroke="#a878b0" stroke-width="2.4" stroke-linejoin="round"/><path d="M9 27h46" stroke="#a878b0" stroke-width="2.4"/><path d="m25 37 5 5 10-11" fill="none" stroke="#a878b0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Projects</span>
           </button>
@@ -950,10 +953,10 @@
         html: `
           <div class="eyebrow">Hello there!</div>
           <h2>Organized, curious & ready to help. ♡</h2>
-          <p>I'm ${portfolio.name}, a detail-oriented professional from the Philippines who enjoys bringing structure to busy workflows, keeping information organized, and helping projects move forward.</p>
-          <p>My experience includes programme coordination, administrative support, research, documentation, and outreach. I enjoy learning new tools, following clear processes, and turning scattered information into something easier to manage.</p>
-          <div class="content-card"><h3>What I can bring to your team</h3><p>Thoughtful organization, reliable follow-through, clear written communication, and a willingness to learn your systems.</p></div>
-          <span class="pill">Remote-ready</span><span class="pill">Detail-oriented</span><span class="pill">Always learning</span>
+          <p>I'm ${portfolio.name}, a Philippines-based freelancer and Virtual Assistant who helps busy teams keep the details moving. I bring structure to day-to-day work through clear communication, organised follow-ups, reliable documentation, and careful checks.</p>
+          <p>My experience spans programme coordination, remote administration, outreach research, content quality checks, and manual website testing. I’m comfortable learning an unfamiliar process, checking the requirements, and turning information into clear next steps.</p>
+          <div class="content-card"><h3>How I can support you</h3><p>Calendar and session coordination, email and student communication, online research, outreach tracking, content checks, and organised task follow-through.</p></div>
+          <span class="pill">Freelance support</span><span class="pill">Detail-oriented</span><span class="pill">Clear written updates</span>
         `
       },
 
@@ -963,7 +966,7 @@
           <div class="eyebrow">Where I've learned and grown</div>
           <h2>Experience & Background</h2>
           <div class="content-card">
-            <span class="date">JULY 2026 – NOVEMBER 2026 · CONTRACT</span>
+            <span class="date">JULY 2026 – PRESENT · CONTRACT</span>
             <h3>Programme Coordinator / Marketing Operations Support</h3>
             <p><strong>UX Academy</strong></p>
             <p>Supported programme coordination, student and instructor communications, scheduling, research, outreach, content operations, and administrative follow-ups for an online UX education business.</p>
@@ -987,6 +990,21 @@
         `
       },
 
+      services: {
+        title: "How I Can Help",
+        html: `
+          <div class="eyebrow">Flexible freelance support</div>
+          <h2>Practical help for the work behind the scenes. ♡</h2>
+          <p>I can support recurring admin tasks or specific projects, with clear priorities and written updates agreed in advance.</p>
+          <div class="content-card"><h3>Virtual & Administrative Assistance</h3><p>Email and message coordination, calendar invitations, scheduling, records, documentation and follow-up tracking.</p></div>
+          <div class="content-card"><h3>Programme & Operations Support</h3><p>Student or customer communications, instructor and stakeholder coordination, session logistics, confirmations and handover notes.</p></div>
+          <div class="content-card"><h3>Research & Outreach Support</h3><p>Online research, prospect research, tailored outreach drafts, directory submissions, response tracking and organised research summaries.</p></div>
+          <div class="content-card"><h3>Content & Website Quality Checks</h3><p>Manual checks of page layouts, links, dates, email content and factual consistency, with clear notes about findings and retest status.</p></div>
+          <p><strong>My working style:</strong> I follow the agreed brief, verify details, keep next steps visible and escalate decisions that need client approval.</p>
+          <a class="action-link" href="mailto:${portfolio.email}?subject=Freelance%20support%20enquiry">Discuss a project ↗</a>
+        `
+      },
+
       projects: {
         title: "My Projects",
         html: `
@@ -994,21 +1012,30 @@
           <h2>Selected Work</h2>
           <p>Examples of the tasks and workflows I've supported. Client-sensitive details are intentionally excluded.</p>
           <div class="content-card">
-            <span class="pill">Research & Audit</span>
-            <h3>Brand Rename Consistency Audit</h3>
-            <p>Reviewed business touchpoints for outdated branding, including website pages, blog links, directories, email, social profiles, and documents. Flagged inconsistencies that needed updating.</p>
+            <span class="pill">Manual QA · Research</span>
+            <h3>UX Tool Review & Retesting</h3>
+            <p>Reviewed selected tool workflows, ranked eight findings by impact, and documented four supporting screenshots. After updates were deployed, manually retested relevant behaviours and recorded passed checks separately from remaining observations.</p>
+            <p><strong>Demonstrates:</strong> structured testing, issue documentation, prioritisation and evidence-based reporting.</p>
           </div>
           <div class="content-card">
-            <span class="pill">Programme Operations</span>
-            <h3>Course Coordination & Follow-ups</h3>
-            <p>Supported session scheduling, student and instructor communication, follow-up tracking, and coordination of outstanding programme tasks.</p>
+            <span class="pill">Content & Website QA</span>
+            <h3>Website and Email Quality Review</h3>
+            <p>Reviewed an eight-email masterclass sequence for dates, UK times, links, calls to action, mobile presentation and course-claim accuracy. Checked website layouts in desktop and phone views and documented issues with page references.</p>
+            <p><strong>Demonstrates:</strong> factual checking, content review and clear issue reporting.</p>
           </div>
           <div class="content-card">
-            <span class="pill">Administrative Support</span>
-            <h3>Records & Documentation</h3>
-            <p>Organized records, encoded information, prepared reports, and reviewed documents with attention to accuracy and consistency.</p>
+            <span class="pill">Outreach Operations</span>
+            <h3>Outreach & Listing Coordination</h3>
+            <p>Researched relevant organisations, prepared tailored outreach, tracked responses and coordinated directory submissions. Work included confirmed resource placements and corrections to course-profile information.</p>
+            <p><strong>Demonstrates:</strong> online research, stakeholder communication and follow-through.</p>
           </div>
-          <p><em>Next step: add redacted screenshots or sample trackers that you're permitted to share.</em></p>
+          <div class="content-card">
+            <span class="pill">Programme Administration</span>
+            <h3>Live Course Coordination</h3>
+            <p>Coordinated student communications, calendar invitations, mentor availability and session details, keeping confirmations and pending decisions visible to the people involved.</p>
+            <p><strong>Demonstrates:</strong> scheduling, written communication and coordination across stakeholders.</p>
+          </div>
+          <p><em>Work samples can be added as redacted or recreated examples where sharing original client material is not authorised.</em></p>
         `
       },
 
@@ -1018,15 +1045,16 @@
           <div class="eyebrow">My digital toolkit</div>
           <h2>Skills I Bring to the Table</h2>
           <h3>Core skills</h3>
-          <span class="pill">Programme Coordination</span>
-          <span class="pill">Administrative Support</span>
+          <span class="pill">Programme Administration</span>
+          <span class="pill">Virtual Assistance</span>
+          <span class="pill">Calendar Coordination</span>
+          <span class="pill">Student & Stakeholder Support</span>
           <span class="pill">Online Research</span>
-          <span class="pill">Lead Generation</span>
-          <span class="pill">Documentation</span>
+          <span class="pill">Outreach & Follow-up Tracking</span>
+          <span class="pill">Content and Email QA</span>
+          <span class="pill">Manual Website Testing</span>
+          <span class="pill">Documentation & Reporting</span>
           <span class="pill">Data Entry</span>
-          <span class="pill">Written Communication</span>
-          <span class="pill">Scheduling & Follow-ups</span>
-          <span class="pill">Task Organization</span>
           <h3 style="margin-top:22px">Tools & platforms</h3>
           <span class="pill">Google Workspace</span>
           <span class="pill">Slack</span>
@@ -1106,10 +1134,11 @@
         html: `
           <div class="eyebrow">A little about my work style</div>
           <h2>Thoughtful work, one step at a time.</h2>
-          <div class="content-card"><h3>01 · Get organized</h3><p>I like having clear priorities, documented tasks, and a reliable place to track progress.</p></div>
-          <div class="content-card"><h3>02 · Communicate clearly</h3><p>I value written instructions, timely updates, and asking questions when something needs clarification.</p></div>
-          <div class="content-card"><h3>03 · Keep learning</h3><p>When I encounter a new tool or process, I use available documentation and tutorials to build my understanding.</p></div>
-          <div class="content-card"><h3>04 · Follow through</h3><p>I aim to keep details visible, track next steps, and make outstanding items easier to manage.</p></div>
+          <div class="content-card"><h3>01 · Clarify the task</h3><p>I check the goal, deadline, expected output and approval owner before moving forward.</p></div>
+          <div class="content-card"><h3>02 · Make follow-ups visible</h3><p>I track replies, pending items and next actions instead of treating a sent message as the end of the process.</p></div>
+          <div class="content-card"><h3>03 · Check before sharing</h3><p>I verify names, dates, links, course details and claims, and flag anything I cannot substantiate.</p></div>
+          <div class="content-card"><h3>04 · Report with evidence</h3><p>For review and testing tasks, I explain what I checked, what I observed and what still needs attention.</p></div>
+          <div class="content-card"><h3>05 · Communicate in writing</h3><p>I share clear updates and blockers so work can move forward asynchronously.</p></div>
         `
       },
 
