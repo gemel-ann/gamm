@@ -537,54 +537,73 @@
     }
 
 
-    /* Compact home screen: keep the full app menu visible without scrolling. */
+    /* Dreamy coquette polish: restore roomy icons, add soft gloss and gentle details. */
     .home {
-      padding: 5px 22px 64px;
-      overflow: hidden;
+      padding: 8px 24px 84px;
+      overflow-y: auto;
     }
-    .welcome { padding: 3px 0 12px; }
-    .welcome h1 { font-size: clamp(30px, 4.5vw, 43px); margin: 5px 0; }
-    .welcome p { font-size: 12px; }
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 15px;
-      max-width: 850px;
+    .welcome { padding: 12px 0 20px; }
+    .welcome h1 {
+      text-shadow: 0 3px 0 rgba(255,255,255,.72), 0 8px 24px rgba(198,111,149,.12);
     }
+    .welcome p { line-height: 1.7; }
+    .app-grid { gap: 21px; }
     .app-group-title {
-      font-size: 10px;
-      letter-spacing: 1.1px;
-      margin-bottom: 7px;
-      padding-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 13px;
+      padding: 0 0 8px 2px;
+      border-bottom: 1px solid rgba(255,255,255,.78);
+      color: #a35f7e;
+      letter-spacing: 1.35px;
     }
-    .app-group-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 5px;
+    .app-group-title::after {
+      content: "♡";
+      font-size: 15px;
+      color: #d58eaa;
+      letter-spacing: 0;
     }
-    .app { gap: 4px; }
-    .app-icon { width: 55px; border-radius: 17px; }
-    .app-label { font-size: 10px; }
-    .signature { margin-top: 10px; font-size: 10px; }
-
+    .app-group-grid { gap: 18px 12px; }
+    .app { gap: 8px; }
+    .app-icon {
+      width: 68px;
+      border-radius: 22px;
+      filter: drop-shadow(0 7px 8px rgba(174,101,132,.13));
+      transition: transform .22s ease, filter .22s ease;
+    }
+    .app:hover .app-icon {
+      filter: drop-shadow(0 10px 12px rgba(174,101,132,.22));
+    }
+    .app-label { color: #674653; font-size: 11px; }
+    .signature { margin-top: 16px; }
+    .dock {
+      background: rgba(255, 248, 252, .72);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 10px 32px rgba(160,92,122,.16), inset 0 1px 0 rgba(255,255,255,.9);
+      backdrop-filter: blur(18px);
+    }
+    .ipad::before {
+      content: "✧  ♡  ✧";
+      position: absolute;
+      z-index: 2;
+      top: 53px;
+      right: 30px;
+      color: rgba(255,255,255,.82);
+      font-size: 15px;
+      letter-spacing: 5px;
+      pointer-events: none;
+      text-shadow: 0 1px 8px rgba(201,117,153,.22);
+    }
     @media (max-width: 699px) {
-      .home { padding: 5px 10px 62px; }
-      .welcome { padding: 3px 0 10px; }
-      .welcome h1 { font-size: 31px; }
-      .welcome p { font-size: 10px; }
-      .app-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .app-group-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px 3px;
-      }
-      .app-icon { width: 45px; border-radius: 14px; }
-      .app-label { font-size: 10px; line-height: 1.15; }
-      .app-group-title { font-size: 9px; margin-bottom: 5px; padding-bottom: 4px; }
-      .app { gap: 3px; }
-      .signature { margin-top: 7px; }
+      .home { padding: 8px 13px 82px; }
+      .welcome { padding: 12px 0 18px; }
+      .app-grid { gap: 20px; }
+      .app-group-grid { gap: 17px 5px; }
+      .app-icon { width: 58px; border-radius: 19px; }
+      .app-label { font-size: 10px; }
+      .app-group-title { font-size: 10px; letter-spacing: 1.15px; }
+      .ipad::before { top: 48px; right: 19px; font-size: 12px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -639,7 +658,7 @@
           <button class="app" data-app="resume">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M17 9h22l10 10v35H17Z" fill="#fff8fb" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M39 9v11h10" fill="#f1c8da" stroke="#bd7893" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 30h17M24 37h17M24 44h11" stroke="#d28ba9" stroke-width="2.6" stroke-linecap="round"/><path d="m23 17 2 2 4-5" fill="none" stroke="#b96588" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="app-label">My Resume</span>
           </button></div></div>
-          <div class="app-group"><h2 class="app-group-title">A little more</h2><div class="app-group-grid"><button class="app" data-app="notes"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="9" width="38" height="46" rx="5" fill="#fffaf0" stroke="#c69b78" stroke-width="2.4"/><path d="M21 22h22M21 30h22M21 38h16" stroke="#d6a98c" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="app-label">Notes</span></button>
+          <div class="app-group"><h2 class="app-group-title">Let’s connect</h2><div class="app-group-grid"><button class="app" data-app="notes"><span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="13" y="9" width="38" height="46" rx="5" fill="#fffaf0" stroke="#c69b78" stroke-width="2.4"/><path d="M21 22h22M21 30h22M21 38h16" stroke="#d6a98c" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="app-label">Notes</span></button>
           <button class="app" data-app="links">
             <span class="app-icon"><svg class="custom-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M26 39 21 44a10 10 0 0 1-14-14l9-9a10 10 0 0 1 14 0" fill="#f8dce8" stroke="#b96588" stroke-width="2.6" stroke-linecap="round"/><path d="m38 25 5-5a10 10 0 0 1 14 14l-9 9a10 10 0 0 1-14 0" fill="#e6c9ed" stroke="#a878b0" stroke-width="2.6" stroke-linecap="round"/><path d="m23 41 18-18" stroke="#b96588" stroke-width="3" stroke-linecap="round"/></svg></span><span class="app-label">Find Me Online</span>
           </button>
