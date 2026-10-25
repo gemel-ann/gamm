@@ -125,6 +125,69 @@
       border-radius: 0 2px 2px 0;
     }
 
+ 
+    .notification-toggle {
+      position: relative;
+      border: 0;
+      background: rgba(255,255,255,.48);
+      color: #9e5f7c;
+      border-radius: 999px;
+      width: 27px;
+      height: 27px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .notification-toggle:hover { transform: translateY(-1px) scale(1.05); background: #fff6fa; }
+    .notification-dot {
+      position: absolute; top: 3px; right: 3px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #df709e; border: 1px solid #fff7fb;
+    }
+    .notification-panel {
+      position: absolute;
+      z-index: 30;
+      top: 48px; right: 15px;
+      width: min(340px, calc(100% - 30px));
+      max-height: min(460px, calc(100% - 80px));
+      overflow-y: auto;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 23px;
+      background: rgba(255,247,251,.94);
+      color: #674653;
+      box-shadow: 0 18px 48px rgba(146,79,111,.23), inset 0 1px 0 white;
+      backdrop-filter: blur(22px);
+      transform-origin: top right;
+      animation: notificationPop .22s ease-out both;
+    }
+    .notification-panel[hidden] { display: none; }
+    @keyframes notificationPop { from { opacity: 0; transform: translateY(-7px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .notification-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:12px; }
+    .notification-heading h2 { margin:0; font: 600 21px "Playfair Display", serif; color:#814c66; }
+    .notification-clear { border:0; background:transparent; color:#b46c8b; font:600 11px "DM Sans",sans-serif; cursor:pointer; padding:5px; }
+    .notification-item {
+      display:flex; align-items:flex-start; gap:11px; width:100%; text-align:left;
+      border:1px solid #f2dce6; border-radius:16px; background:rgba(255,255,255,.72);
+      padding:11px; margin:8px 0; color:inherit; cursor:pointer; font:inherit;
+      transition:transform .16s ease, background .16s ease;
+    }
+    .notification-item:hover { transform:translateY(-1px); background:#fff; }
+    .notification-icon { flex:0 0 36px; height:36px; display:grid; place-items:center; border-radius:12px; background:#f4d7e4; font-size:18px; }
+    .notification-item:nth-of-type(3) .notification-icon { background:#f9e5c9; }
+    .notification-item:nth-of-type(4) .notification-icon { background:#ddeadf; }
+    .notification-copy { min-width:0; display:block; }
+    .notification-copy strong { display:block; font-size:12px; margin:1px 0 4px; color:#814c66; }
+    .notification-copy small { display:block; font-size:10px; font-weight:500; color:#a67b8e; margin-bottom:4px; }
+    .notification-copy span { display:block; font-size:11px; line-height:1.5; color:#745361; }
+    .notification-signoff { text-align:center; font-size:10px; color:#b17d95; margin:13px 0 2px; }
+    .notification-empty { text-align:center; padding:24px 8px; font-size:12px; color:#a67b8e; }
+    @media (max-width:540px) { .notification-panel { top:45px; right:8px; padding:13px; } }
+
     .home {
       padding: 10px 28px 90px;
       height: calc(100% - 42px);
@@ -624,8 +687,23 @@
         <div class="status-right" aria-label="Connection and battery">
           <span>Wi-Fi</span>
           <span class="battery" aria-label="Battery"></span>
+          <button class="notification-toggle" id="notificationToggle" aria-label="Open notifications" aria-expanded="false" title="Notifications">♧<span class="notification-dot" id="notificationDot"></span></button>
         </div>
       </header>
+
+      <section class="notification-panel" id="notificationPanel" aria-label="Notifications" hidden>
+        <div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="clearNotifications">Clear all</button></div>
+        <button class="notification-item" data-notification-app="about">
+          <span class="notification-icon">♡</span><span class="notification-copy"><strong>A little hello</strong><small>Just now</small><span>Welcome, lovely visitor! I'm so happy you're here. Take a peek around!</span></span>
+        </button>
+        <button class="notification-item" data-notification-app="projects">
+          <span class="notification-icon">🎀</span><span class="notification-copy"><strong>Something to explore</strong><small>Whenever</small><span>Curious about my work? My projects and experience are just a tap away.</span></span>
+        </button>
+        <button class="notification-item" data-notification-app="contact">
+          <span class="notification-icon">💌</span><span class="notification-copy"><strong>Let's connect</strong><small>Anytime</small><span>Have a project in mind? I'd love to hear from you. ♡</span></span>
+        </button>
+        <p class="notification-signoff">Made with care, a little imagination & pink magic ♡</p>
+      </section>
 
       <section class="lock-screen" id="lockScreen" aria-label="Portfolio lock screen">
         <div><div class="lock-top">♡ Welcome, lovely visitor ♡</div><div class="lock-clock" id="lockClock">09:41</div><div class="lock-date" id="lockDate">A little pink moment, just for you</div></div>
@@ -938,12 +1016,42 @@
       button.addEventListener("click", () => openApp(button.dataset.app));
     });
 
+    const notificationToggle = document.getElementById("notificationToggle");
+    const notificationPanel = document.getElementById("notificationPanel");
+    const notificationDot = document.getElementById("notificationDot");
+    const clearNotifications = document.getElementById("clearNotifications");
+
+    function closeNotifications() {
+      notificationPanel.hidden = true;
+      notificationToggle.setAttribute("aria-expanded", "false");
+    }
+    notificationToggle.addEventListener("click", () => {
+      const opening = notificationPanel.hidden;
+      notificationPanel.hidden = !opening;
+      notificationToggle.setAttribute("aria-expanded", String(opening));
+      if (opening) notificationDot.hidden = true;
+    });
+    clearNotifications.addEventListener("click", () => {
+      notificationPanel.innerHTML = '<div class="notification-heading"><h2>Notifications ♡</h2><button class="notification-clear" id="restoreNotifications">Restore</button></div><div class="notification-empty">All caught up, lovely! ♡</div><p class="notification-signoff">Made with care, a little imagination & pink magic ♡</p>';
+      document.getElementById("restoreNotifications").addEventListener("click", () => window.location.reload());
+    });
+    document.querySelectorAll("[data-notification-app]").forEach(item => {
+      item.addEventListener("click", () => {
+        const target = item.dataset.notificationApp;
+        closeNotifications();
+        openApp(target);
+      });
+    });
+    document.addEventListener("click", event => {
+      if (!notificationPanel.hidden && !notificationPanel.contains(event.target) && !notificationToggle.contains(event.target)) closeNotifications();
+    });
+
     document.getElementById("homeButton").addEventListener("click", goHome);
     document.getElementById("closeButton").addEventListener("click", goHome);
     document.getElementById("minimizeButton").addEventListener("click", goHome);
 
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") goHome();
+      if (event.key === "Escape") { goHome(); closeNotifications(); }
     });
 
     function updateClock() {
