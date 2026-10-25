@@ -713,6 +713,71 @@
       .app-group-title { font-size: 10px; letter-spacing: 1.15px; }
     }
 
+
+    /* Final home-screen alignment: center the 3x3 grid and prevent inherited rules from shifting it. */
+    #homeScreen.home {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 24px 78px;
+      overflow: hidden;
+    }
+    #homeScreen .welcome {
+      width: 100%;
+      text-align: center;
+      padding: 10px 0 18px;
+      margin: 0 auto;
+    }
+    #homeScreen .app-grid {
+      display: block;
+      width: 100%;
+      max-width: 570px;
+      margin: 0 auto;
+    }
+    #homeScreen .home-app-grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-items: center;
+      align-items: center;
+      gap: 18px 16px;
+      margin: 0 auto;
+    }
+    #homeScreen .app {
+      width: 100%;
+      min-width: 0;
+      justify-self: stretch;
+      align-items: center;
+      text-align: center;
+      gap: 7px;
+    }
+    #homeScreen .app-icon {
+      width: 64px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    #homeScreen .app-label {
+      display: block;
+      width: 100%;
+      text-align: center;
+      overflow-wrap: anywhere;
+      font-size: 11px;
+      line-height: 1.25;
+    }
+    @media (max-width: 699px) {
+      #homeScreen.home { padding: 8px 14px 72px; }
+      #homeScreen .welcome { padding: 8px 0 16px; }
+      #homeScreen .home-app-grid { gap: 16px 8px; }
+      #homeScreen .app-icon { width: 54px; }
+      #homeScreen .app-label { font-size: 10px; }
+    }
+    @media (max-height: 720px) {
+      #homeScreen.home { padding-top: 3px; padding-bottom: 64px; }
+      #homeScreen .welcome { padding: 3px 0 10px; }
+      #homeScreen .home-app-grid { gap: 11px 10px; }
+      #homeScreen .app-icon { width: 49px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
