@@ -455,6 +455,10 @@
     .contact-form textarea { min-height:100px; resize:vertical; }
     .contact-form button { border:0; cursor:pointer; }
     .contact-notice { font-size:12px; color:#88546c; }
+    .contact-email-card { display:flex; align-items:center; gap:14px; margin-top:20px; padding:17px 18px; border:1px solid #f1c9db; border-radius:18px; background:linear-gradient(135deg,#fffafd,#fff0f6); box-shadow:0 7px 18px rgba(177,105,140,.08); }
+    .contact-email-icon { flex:0 0 42px; width:42px; height:42px; display:grid; place-items:center; border-radius:14px; background:linear-gradient(145deg,#fff,#f5c4d9); color:#a34f77; font-size:23px; box-shadow:inset 0 1px 3px #ffffff; }
+    .contact-email-label { margin-bottom:4px; color:#a15f7d; font-size:11px; font-weight:700; letter-spacing:.04em; }
+    .contact-email-address { margin:0; color:#71465b; font-size:13px; overflow-wrap:anywhere; }
 
     .app-window {
       position: absolute;
@@ -923,11 +927,13 @@
             <button class="action-link" type="submit">Prepare my message ♡</button>
             <p class="contact-notice" id="contactNotice" role="status"></p>
           </form>
-          <div class="content-card">
-            <h3>Professional email</h3>
-            <p>${portfolio.email === "YOUR_EMAIL_HERE" ? "Add your preferred professional email in the portfolio settings." : portfolio.email}</p>
+          <div class="content-card contact-email-card">
+            <div class="contact-email-icon" aria-hidden="true">♡</div>
+            <div>
+              <div class="contact-email-label">A little note, perhaps? ✉️</div>
+              <p class="contact-email-address">${portfolio.email === "YOUR_EMAIL_HERE" ? "Add your preferred email in the portfolio settings." : portfolio.email}</p>
+            </div>
           </div>
-          <a class="action-link" href="${portfolio.linkedin}" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
           <p style="margin-top:18px">Thank you for stopping by my little digital space. I hope we get to work together!</p>
         `
       },
